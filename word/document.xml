@@ -1,0 +1,430 @@
+<ns0:document xmlns:ns0="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <ns0:body>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="Heading1"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:t>Welcome to Python's docx module</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="Heading2"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:t>Make and edit docx in 200 lines of pure Python</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="BodyText"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>The module was created when I was looking for a Python support for MS Word .doc files on PyPI and Stackoverflow. Unfortunately, the only solutions I could find used:</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListNumber"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>COM automation</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListNumber"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>.net or Java</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListNumber"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Automating OpenOffice or MS Office</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="BodyText"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>For those of us who prefer something simpler, I made docx.</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="Heading2"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:t>Making documents</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="BodyText"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>The docx module has the following features:</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Paragraphs</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Bullets</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Numbered lists</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Multiple levels of headings</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Tables</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Document Properties</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="BodyText"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Tables are just lists of lists, like this:</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:tbl>
+      <ns0:tblPr>
+        <ns0:tblStyle ns0:val=""/>
+        <ns0:tblW ns0:type="auto" ns0:w="0"/>
+        <ns0:tblLook ns0:val="0400"/>
+      </ns0:tblPr>
+      <ns0:tblGrid>
+        <ns0:gridCol ns0:w="2390"/>
+        <ns0:gridCol ns0:w="2390"/>
+        <ns0:gridCol ns0:w="2390"/>
+      </ns0:tblGrid>
+      <ns0:tr>
+        <ns0:trPr>
+          <ns0:cnfStyle ns0:val="000000100000"/>
+        </ns0:trPr>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+            <ns0:shd ns0:color="auto" ns0:themeFill="text2" ns0:themeFillTint="99" ns0:val="clear" ns0:fill="FFFFFF"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="center"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>A1</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+            <ns0:shd ns0:color="auto" ns0:themeFill="text2" ns0:themeFillTint="99" ns0:val="clear" ns0:fill="FFFFFF"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="center"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>A2</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+            <ns0:shd ns0:color="auto" ns0:themeFill="text2" ns0:themeFillTint="99" ns0:val="clear" ns0:fill="FFFFFF"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="center"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>A3</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+      </ns0:tr>
+      <ns0:tr>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="left"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>B1</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="left"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>B2</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="left"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>B3</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+      </ns0:tr>
+      <ns0:tr>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="left"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>C1</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="left"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>C2</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+        <ns0:tc>
+          <ns0:tcPr>
+            <ns0:tcW ns0:type="auto" ns0:w="0"/>
+          </ns0:tcPr>
+          <ns0:p>
+            <ns0:pPr>
+              <ns0:pStyle ns0:val="BodyText"/>
+              <ns0:jc ns0:val="left"/>
+            </ns0:pPr>
+            <ns0:r>
+              <ns0:rPr/>
+              <ns0:t>C3</ns0:t>
+            </ns0:r>
+          </ns0:p>
+        </ns0:tc>
+      </ns0:tr>
+    </ns0:tbl>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="Heading2"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:t>Editing documents</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="BodyText"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Thanks to the goshdarned awesomeness of the lxml module, we can:</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Search and replace</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Extract plain text of document</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="ListBullet"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Add and delete items anywhere within the document</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:r>
+        <ns0:drawing>
+          <ns0:inline xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" distT="0" distR="0" distL="0" distB="0">
+            <ns0:extent cy="901700" cx="2679700"/>
+            <ns0:effectExtent r="0" b="0" l="25400" t="0"/>
+            <ns0:docPr id="2" descr="This is a test description" name="Picture 1"/>
+            <ns0:cNvGraphicFramePr>
+              <ns0:graphicFrameLocks xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+            </ns0:cNvGraphicFramePr>
+            <ns0:graphic xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/main">
+              <ns0:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <ns0:pic xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <ns0:nvPicPr>
+                    <ns0:cNvPr id="0" descr="image1.png" name="Picture 1"/>
+                    <ns0:cNvPicPr>
+                      <ns0:picLocks xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeArrowheads="1" noChangeAspect="1"/>
+                    </ns0:cNvPicPr>
+                  </ns0:nvPicPr>
+                  <ns0:blipFill>
+                    <ns0:blip xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:ns1="http://schemas.openxmlformats.org/officeDocument/2006/relationships" ns1:embed="rId7"/>
+                    <ns0:srcRect xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/main"/>
+                    <ns0:stretch xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/main">
+                      <ns0:fillRect/>
+                    </ns0:stretch>
+                  </ns0:blipFill>
+                  <ns0:spPr bwMode="auto">
+                    <ns0:xfrm xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/main">
+                      <ns0:off y="0" x="0"/>
+                      <ns0:ext cy="901700" cx="2679700"/>
+                    </ns0:xfrm>
+                    <ns0:prstGeom xmlns:ns0="http://schemas.openxmlformats.org/drawingml/2006/main" prst="rect">
+                      <ns0:avLst/>
+                    </ns0:prstGeom>
+                  </ns0:spPr>
+                </ns0:pic>
+              </ns0:graphicData>
+            </ns0:graphic>
+          </ns0:inline>
+        </ns0:drawing>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:r>
+        <ns0:br ns0:type="page"/>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="Heading2"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:t>Ideas? Questions? Want to contribute?</ns0:t>
+      </ns0:r>
+    </ns0:p>
+    <ns0:p>
+      <ns0:pPr>
+        <ns0:pStyle ns0:val="BodyText"/>
+        <ns0:jc ns0:val="left"/>
+      </ns0:pPr>
+      <ns0:r>
+        <ns0:rPr/>
+        <ns0:t>Email &lt;python.docx@librelist.com&gt;</ns0:t>
+      </ns0:r>
+    </ns0:p>
+  </ns0:body>
+</ns0:document>

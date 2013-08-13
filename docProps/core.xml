@@ -1,0 +1,12 @@
+<ns0:coreProperties xmlns:ns0="http://schemas.openxmlformats.org/package/2006/metadata/core-properties">
+  <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Python docx demo</dc:title>
+  <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">A practical example of making docx from Python</dc:subject>
+  <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mike MacCana</dc:creator>
+  <ns0:keywords>python,Office Open XML,Word</ns0:keywords>
+  <ns0:lastModifiedBy>Mike MacCana</ns0:lastModifiedBy>
+  <ns0:revision>1</ns0:revision>
+  <ns0:category>Examples</ns0:category>
+  <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">Examples</dc:description>
+  <dcterms:created xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dcterms="http://purl.org/dc/terms/" xsi:type="dcterms:W3CDTF">2013-08-12T10:32:27Z</dcterms:created>
+  <dcterms:modified xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dcterms="http://purl.org/dc/terms/" xsi:type="dcterms:W3CDTF">2013-08-12T10:32:27Z</dcterms:modified>
+</ns0:coreProperties>

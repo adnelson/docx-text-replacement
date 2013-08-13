@@ -61,65 +61,6 @@ nsprefixes = {
     'dcmitype': 'http://purl.org/dc/dcmitype/',
     'dcterms':  'http://purl.org/dc/terms/'}
 
-class DocX():
-    def __init__(self, filename = None):
-        self.filename = filename
-        if self.filename:
-            print "Opening file '%s'" % self.filename
-            try:
-                doc = zipfile.ZipFile(self.filename) 
-                self.document = etree.fromstring(doc.read('word/document.xml'))
-                self.coreprops = etree.fromstring(doc.read('docProps/core.xml'))
-                self.appprops = etree.fromstring(doc.read('docProps/app.xml'))
-                self.contenttypes = etree.fromstring(doc.read('[Content_Types].xml'))
-                self.websettings = etree.fromstring(doc.read('word/webSettings.xml'))
-                self.wordrelationships = etree.fromstring(doc.read('word/_rels/document.xml.rels'))
-                # print ("Found the following:\n\tdocument = %s\n\tcoreprops = %s\n\t"+ \
-                #        "appprops = %s\n\tcontenttypes = %s\n\twebsettings = %s\n\t"+ \
-                #        "wordrelationships = %s") % (self.document, self.coreprops, self.appprops, \
-                #        self.contenttypes, self.websettings, self.wordrelationships)
-            except Exception as e:
-                print e
-        else:
-            print "Creating new DocX object"
-    def get_document(self):
-        return self.document
-    def save(self, output = None):
-        '''Save a modified document'''
-        assert os.path.isdir(template_dir)
-        if output is None:
-            output = self.filename
-        docxfile = zipfile.ZipFile(output, mode='w', compression=zipfile.ZIP_DEFLATED)
-
-        # Move to the template data path
-        prev_dir = os.path.abspath('.')  # save previous working dir
-        os.chdir(template_dir)
-
-        # Serialize our trees into out zip file
-        treesandfiles = {self.document:     'word/document.xml',
-                         self.coreprops:    'docProps/core.xml',
-                         self.appprops:     'docProps/app.xml',
-                         self.contenttypes: '[Content_Types].xml',
-                         self.websettings:  'word/webSettings.xml',
-                         self.wordrelationships: 'word/_rels/document.xml.rels'}
-        for tree in treesandfiles:
-            log.info('Saving: %s' % treesandfiles[tree])
-            treestring = etree.tostring(tree, pretty_print=True)
-            docxfile.writestr(treesandfiles[tree], treestring)
-        # Add & compress support files
-        files_to_ignore = ['.DS_Store']  # nuisance from some os's
-        for dirpath, dirnames, filenames in os.walk('.'):
-            for filename in filenames:
-                if filename in files_to_ignore:
-                    continue
-                templatefile = join(dirpath, filename)
-                archivename = templatefile[2:]
-                log.info('Saving: %s', archivename)
-                docxfile.write(templatefile, archivename)
-        log.info('Saved to: %r', output)
-        print 'Saved to: %r' % output
-        docxfile.close()
-        os.chdir(prev_dir)  # restore previous working dir
 
 def opendocx(file):
     '''Open a docx file, return a document XML tree'''
@@ -1002,3 +943,4 @@ def savedocx(document, coreprops, appprops, contenttypes, websettings, wordrelat
     log.info('Saved new file to: %r', output)
     docxfile.close()
     os.chdir(prev_dir)  # restore previous working dir
+    return
