@@ -64,26 +64,30 @@ nsprefixes = {
 class DocX():
     def __init__(self, filename = None):
         self.filename = filename
+        self.trees = {}
+        self.images = {}
         if self.filename:
             print "Opening file '%s'" % self.filename
             try:
                 doc = zipfile.ZipFile(self.filename) 
-                self.document = etree.fromstring(doc.read('word/document.xml'))
-                self.coreprops = etree.fromstring(doc.read('docProps/core.xml'))
-                self.appprops = etree.fromstring(doc.read('docProps/app.xml'))
-                self.contenttypes = etree.fromstring(doc.read('[Content_Types].xml'))
-                self.websettings = etree.fromstring(doc.read('word/webSettings.xml'))
-                self.wordrelationships = etree.fromstring(doc.read('word/_rels/document.xml.rels'))
-                # print ("Found the following:\n\tdocument = %s\n\tcoreprops = %s\n\t"+ \
-                #        "appprops = %s\n\tcontenttypes = %s\n\twebsettings = %s\n\t"+ \
-                #        "wordrelationships = %s") % (self.document, self.coreprops, self.appprops, \
-                #        self.contenttypes, self.websettings, self.wordrelationships)
+                for name in doc.namelist():
+                    if name.endswith("xml") or name.endswith("rels"):
+                        print "\tAdding xml file", name, " to DocX object"
+                        self.trees[name] = etree.fromstring(self.strings[name])
+                    elif name.endswith("jpeg") or name.endswith("png") or name.endswith("jpg"):
+                        # self.images[name] = Image.fromstring(doc.read(name))
+                        print "\tWe should be doing something with this image: %s" % name
+                    else:
+                        print "\tFound a file %s that we're not doing anything with" % name
+                
             except Exception as e:
                 print e
+                raise
         else:
-            print "Creating new DocX object"
+            raise IOError("You must supply a filename")
+        print "Finished constructing DocX"
     def get_document(self):
-        return self.document
+        return self.trees['word/document.xml']
     def save(self, output = None):
         '''Save a modified document'''
         assert os.path.isdir(template_dir)
@@ -92,34 +96,35 @@ class DocX():
         docxfile = zipfile.ZipFile(output, mode='w', compression=zipfile.ZIP_DEFLATED)
 
         # Move to the template data path
-        prev_dir = os.path.abspath('.')  # save previous working dir
-        os.chdir(template_dir)
+        # prev_dir = os.path.abspath('.')  # save previous working dir
+        # os.chdir(template_dir)
+
+        # For some reason this version tag doesn't get appended automatically, so for the 
+        # time being we're doing it manually...
+        version_tag = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n"
 
         # Serialize our trees into out zip file
-        treesandfiles = {self.document:     'word/document.xml',
-                         self.coreprops:    'docProps/core.xml',
-                         self.appprops:     'docProps/app.xml',
-                         self.contenttypes: '[Content_Types].xml',
-                         self.websettings:  'word/webSettings.xml',
-                         self.wordrelationships: 'word/_rels/document.xml.rels'}
-        for tree in treesandfiles:
-            log.info('Saving: %s' % treesandfiles[tree])
-            treestring = etree.tostring(tree, pretty_print=True)
-            docxfile.writestr(treesandfiles[tree], treestring)
+        for filename in self.trees:
+            log.info('Saving: %s' % filename)
+            treestring = version_tag + etree.tostring(self.trees[filename], pretty_print = False)
+            print 'Saving %s' % (filename)
+            docxfile.writestr(filename, treestring)
+        print "finished adding files. Archive now contains:"
+        docxfile.printdir()
         # Add & compress support files
-        files_to_ignore = ['.DS_Store']  # nuisance from some os's
-        for dirpath, dirnames, filenames in os.walk('.'):
-            for filename in filenames:
-                if filename in files_to_ignore:
-                    continue
-                templatefile = join(dirpath, filename)
-                archivename = templatefile[2:]
-                log.info('Saving: %s', archivename)
-                docxfile.write(templatefile, archivename)
-        log.info('Saved to: %r', output)
+        # files_to_ignore = ['.DS_Store']  # nuisance from some os's
+        # for dirpath, dirnames, filenames in os.walk('.'):
+        #     for filename in filenames:
+        #         if filename in files_to_ignore:
+        #             continue
+        #         templatefile = join(dirpath, filename)
+        #         archivename = templatefile[2:]
+        #         log.info('Saving: %s', archivename)
+        #         docxfile.write(templatefile, archivename)
+        # log.info('Saved to: %r', output)
         print 'Saved to: %r' % output
         docxfile.close()
-        os.chdir(prev_dir)  # restore previous working dir
+        # os.chdir(prev_dir)  # restore previous working dir
 
 def opendocx(file):
     '''Open a docx file, return a document XML tree'''

@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 import sys
-
 from docx import DocX 
 import re
 import random
+
+VERBOSE = True
 
 lorem_ipsum = ("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do " + 
               "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim " +
@@ -13,22 +14,25 @@ lorem_ipsum = ("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               "sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
               "mollit anim id est laborum.").split()
 
-def find_replacements(line, replacements):
-    subs = re.split(r'(@[^@]*@)', line)
+def replace_tags(line, replacements, specific_words = None):
+    subs = re.split(r'(@[^@<]*@?)', line)
     res = ""
     count = 0
     for sub in subs:
-        if len(sub) > 2:
-            if sub[0] == sub[-1] == '@':
-                try:
-                    res += replacements[sub[1:-1]].__str__()
-                    print "replacing '%s' with '%s'" % (sub, replacements[sub[1:-1]])
-                    count += 1
-                except KeyError:
-                    print "Key '%s' not found in replacements!" % sub
+        if len(sub) > 2 and sub[0] == sub[-1] == '@':
+            if specific_words:
+                if sub[1:-1] not in specific_words:
                     res += sub
-            else:
+                    continue
+            try:
+                res += replacements[sub[1:-1]].__str__()
+                if VERBOSE: "replacing '%s' with '%s'" % (sub, replacements[sub[1:-1]])
+                count += 1
+            except KeyError:
+                print "Key '%s' not found in replacements!" % sub
                 res += sub
+        else:
+            res += sub
     return res, count
 
 def generate_random(document):
@@ -48,26 +52,28 @@ def generate_random(document):
             gen(elem.text)
     return replacements
 
-def make_replacements(document, replacements):
+def make_replacements(document, replacements, specific_words = None):
     ''' Finds and makes all of the replacements. '''
     count = 0
     for elem in document.iter():
         if elem.text:
-            elem.text, c = find_replacements(elem.text, replacements)
+            elem.text, c = replace_tags(elem.text, replacements, specific_words)
             count += c
     print "Made %d replacements" % count
 
-def process_file(filename, replacements = None, output = None):
+def process_file(filename, replacements = None, output = None, save = True):
     ''' Given a .docx filename, makes replacements and saves the document '''
     try:
         dx = DocX(filename)
+        # get_text(dx.get_document_str())
         if replacements is None:
             replacements = generate_random(dx.get_document())
         make_replacements(dx.get_document(), replacements)
-        dx.save(output)
+        if save: 
+            dx.save(output)
     except Exception as e:
         print e
 
 if __name__ == '__main__':
-    process_file("experimenting/moodys_june-1.docx", \
-                 output = "experimenting/moodys_june-1 ploppy.docx")
+    process_file(sys.argv[1], \
+                 output = sys.argv[2])
