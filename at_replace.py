@@ -67,27 +67,7 @@ def process_file(filename, replacements = None, output = None, save = True):
     dx = DocX(filename)
     if replacements is None:
         replacements = generate_random(dx.get_document())
-    dx.replace_image("awesome.png", "more_awesome.png")
-    # for elem in dx.get_document().iter():
-    #     if elem.tag.endswith("graphic"):
-    #         print "Found graphics tag"
-    #         desc = get_description(elem)
-    #         rid = get_id(elem)
-    #         picname = get_pic_name(elem)
-    #         if desc is not None:
-    #             print "\tDescription is: %s" % desc
-    #         else:
-    #             print "\t(No description)"
-    #         if rid is not None:
-    #             print "\trId: %s" % rid
-    #         else:
-    #             print "\t(No id)"
-    #         if picname is not None:
-    #             print "\tpic name: %s" % picname
-    #         else:
-    #             print "\t(No pic name)"
-        # make_replacements(dx.get_document(), replacements)
-        # dx.set_image_relation("rId10", "awesome.png")
+    dx.replace_images_from_dic({"awesome.png": "more_awesome.png"})
     if save: 
         dx.save(output)
     # except Exception as e:

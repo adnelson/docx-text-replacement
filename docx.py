@@ -171,12 +171,24 @@ class DocX():
 
     def replace_image(self, imagename, new_image):
         for elem in self.get_document().iter():
-            if elem.tag.endswith("graphic"):
+            if elem.tag.split("}")[-1] == "graphic":
                 rid = get_id(elem)
                 picname = get_pic_name(elem)
                 if picname == imagename and rid is not None:
                     self.set_image_relation(rid, new_image)
                     return
+
+    def replace_images_from_dic(self, replacements):
+        for elem in self.get_document().iter():
+            if elem.tag.split("}")[-1] == "graphic":
+                picname = get_pic_name(elem)
+                if picname and picname in replacements:
+                    rid = get_id(elem)
+                    if rid is not None:
+                        print "Replacing %s with %s" % (picname, replacements[picname])
+                        self.set_image_relation(rid, replacements[picname])
+                    else:
+                        print "Relation id for image %s not present; can't replace" % picname
 
 def find_subelem(elem, name):
     ''' Given an etree graphic element, finds its description '''
