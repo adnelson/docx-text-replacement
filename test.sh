@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -r experimenting/modified*
-./at_replace.py experimenting/original.docx experimenting/modified.docx
+rm -rf experimenting/fail*
+./at_replace.py experimenting/orig_awesome.docx experimenting/fail.docx
 cd experimenting
-unzip modified.docx -d modified
+unzip fail.docx -d fail

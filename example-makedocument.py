@@ -11,7 +11,7 @@ Part of Python's docx module - http://github.com/mikemaccana/python-docx
 See LICENSE for licensing information.
 """
 
-from docx import *
+from docx_old import *
 
 if __name__ == '__main__':
     # Default set of relationshipships - the minimum components of a document
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         body.append(paragraph(point, style='ListBullet'))
 
     # Add an image
-    relationships, picpara = picture(relationships, 'image1.png',
+    relationships, picpara = picture(relationships, 'fuzzy.png',
                                      'This is a test description')
     body.append(picpara)
 

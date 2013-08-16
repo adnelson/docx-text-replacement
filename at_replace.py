@@ -63,17 +63,40 @@ def make_replacements(document, replacements, specific_words = None):
 
 def process_file(filename, replacements = None, output = None, save = True):
     ''' Given a .docx filename, makes replacements and saves the document '''
-    try:
-        dx = DocX(filename)
-        # get_text(dx.get_document_str())
-        if replacements is None:
-            replacements = generate_random(dx.get_document())
-        make_replacements(dx.get_document(), replacements)
-        if save: 
-            dx.save(output)
-    except Exception as e:
-        print e
+    # try:
+    dx = DocX(filename)
+    if replacements is None:
+        replacements = generate_random(dx.get_document())
+    dx.replace_image("awesome.png", "more_awesome.png")
+    # for elem in dx.get_document().iter():
+    #     if elem.tag.endswith("graphic"):
+    #         print "Found graphics tag"
+    #         desc = get_description(elem)
+    #         rid = get_id(elem)
+    #         picname = get_pic_name(elem)
+    #         if desc is not None:
+    #             print "\tDescription is: %s" % desc
+    #         else:
+    #             print "\t(No description)"
+    #         if rid is not None:
+    #             print "\trId: %s" % rid
+    #         else:
+    #             print "\t(No id)"
+    #         if picname is not None:
+    #             print "\tpic name: %s" % picname
+    #         else:
+    #             print "\t(No pic name)"
+        # make_replacements(dx.get_document(), replacements)
+        # dx.set_image_relation("rId10", "awesome.png")
+    if save: 
+        dx.save(output)
+    # except Exception as e:
+    #     print e
 
 if __name__ == '__main__':
-    process_file(sys.argv[1], \
-                 output = sys.argv[2])
+    if len(sys.argv) == 3:
+        process_file(sys.argv[1], \
+                     output = sys.argv[2])
+    else:
+        process_file("experimenting/original.docx", \
+                     "experimenting/modified.docx")

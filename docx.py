@@ -20,6 +20,7 @@ import re
 import time
 import os
 from os.path import join
+import subprocess
 
 log = logging.getLogger(__name__)
 
@@ -63,31 +64,79 @@ nsprefixes = {
 
 class DocX():
     def __init__(self, filename = None):
-        self.filename = filename
+        self.relationships = relationshiplist()
         self.trees = {}
         self.images = {}
-        if self.filename:
+        self.other = {}
+        if filename:
+            self.filename = filename
             print "Opening file '%s'" % self.filename
             try:
                 doc = zipfile.ZipFile(self.filename) 
                 for name in doc.namelist():
                     if name.endswith("xml") or name.endswith("rels"):
                         print "\tAdding xml file", name, " to DocX object"
-                        self.trees[name] = etree.fromstring(self.strings[name])
+                        self.trees[name] = etree.fromstring(doc.read(name))
                     elif name.endswith("jpeg") or name.endswith("png") or name.endswith("jpg"):
-                        # self.images[name] = Image.fromstring(doc.read(name))
-                        print "\tWe should be doing something with this image: %s" % name
+                        # open the image and read its contents into memory
+                        print "\tAdding image: %s" % (name)
+                        self.images[name] = doc.read(name)
                     else:
                         print "\tFound a file %s that we're not doing anything with" % name
-                
+                        self.other[name] = doc.read(name)
             except Exception as e:
                 print e
                 raise
         else:
-            raise IOError("You must supply a filename")
-        print "Finished constructing DocX"
+            self.trees['word/document.xml'] = newdocument()
+            self.trees['docProps/core.xml'] = None # modify this later
+            self.trees['docProps/app.xml'] = appproperties()
+            self.trees['[Content_Types].xml'] = contenttypes()
+            self.trees['word/webSettings.xml'] = websettings()
+            self.trees['word/_rels/document.xml.rels'] = wordrelationships(self.relationships)
+        self.body = self.get_document().xpath("/w:document/w:body", namespaces = nsprefixes)
+        self.core_props = {}
+
+    def set_title(self, title):
+        self.get_core_props()['title'] = title
+
+    def set_subject(self, subject):
+        self.get_core_props()['subject'] = subject
+
+    def set_creator(self, creator):
+        self.get_core_props()['creator'] = creator
+
+    def set_keywords(self, keywords):
+        self.get_core_props()['keywords'] = keywords
+
     def get_document(self):
         return self.trees['word/document.xml']
+
+    def get_core_props(self):
+        return self.core_props
+
+    def get_relationships(self):
+        return self.trees['word/_rels/document.xml.rels']
+
+    def set_image_relation(self, rel_id, image_path):
+        rels = self.trees['word/_rels/document.xml.rels']
+        # read image into memory
+        try:
+            img = open(image_path).read()
+        except Exception as e:
+            print "Error opening image %s: %s" % (image_path, e)
+            return
+        # fix the image path (e.g. "foo/bar/baz.jpg" -> "media/baz.jpg")
+        image_path = "media/" + image_path.split('/')[-1]
+        self.images["word/" + image_path] = img
+        for rel in rels:
+            if 'Id' in rel.attrib and rel.attrib['Id'] == rel_id:
+                print "%s was pointed at %s" % (rel_id, rel.attrib['Target'])
+                rel.attrib['Target'] = image_path
+                print 'Now %s is pointing at %s' % (rel_id, image_path)
+                return
+        raise Exception('Relationship ID %s was not found!' % rel_id)
+
     def save(self, output = None):
         '''Save a modified document'''
         assert os.path.isdir(template_dir)
@@ -95,9 +144,9 @@ class DocX():
             output = self.filename
         docxfile = zipfile.ZipFile(output, mode='w', compression=zipfile.ZIP_DEFLATED)
 
-        # Move to the template data path
-        # prev_dir = os.path.abspath('.')  # save previous working dir
-        # os.chdir(template_dir)
+        # set up the core properties if not already
+        if self.trees['docProps/core.xml'] is None:
+            self.trees['docProps/core.xml'] = coreproperties(**self.get_core_props())
 
         # For some reason this version tag doesn't get appended automatically, so for the 
         # time being we're doing it manually...
@@ -105,26 +154,78 @@ class DocX():
 
         # Serialize our trees into out zip file
         for filename in self.trees:
-            log.info('Saving: %s' % filename)
-            treestring = version_tag + etree.tostring(self.trees[filename], pretty_print = False)
+            log.info('Saving XML file: %s' % filename)
+            treestring = version_tag + etree.tostring(self.trees[filename], pretty_print = True)
             print 'Saving %s' % (filename)
             docxfile.writestr(filename, treestring)
+        for filename in self.images:
+            print "Saving image: %s" % filename
+            docxfile.writestr(filename, self.images[filename])
+        for filename in self.other:
+            print "Saving other file: %s" % filename
+            docxfile.writestr(filename, self.other[filename])
         print "finished adding files. Archive now contains:"
         docxfile.printdir()
-        # Add & compress support files
-        # files_to_ignore = ['.DS_Store']  # nuisance from some os's
-        # for dirpath, dirnames, filenames in os.walk('.'):
-        #     for filename in filenames:
-        #         if filename in files_to_ignore:
-        #             continue
-        #         templatefile = join(dirpath, filename)
-        #         archivename = templatefile[2:]
-        #         log.info('Saving: %s', archivename)
-        #         docxfile.write(templatefile, archivename)
-        # log.info('Saved to: %r', output)
         print 'Saved to: %r' % output
         docxfile.close()
-        # os.chdir(prev_dir)  # restore previous working dir
+
+    def replace_image(self, imagename, new_image):
+        for elem in self.get_document().iter():
+            if elem.tag.endswith("graphic"):
+                rid = get_id(elem)
+                picname = get_pic_name(elem)
+                if picname == imagename and rid is not None:
+                    self.set_image_relation(rid, new_image)
+                    return
+
+def find_subelem(elem, name):
+    ''' Given an etree graphic element, finds its description '''
+    for subelem in elem:
+        if subelem.tag.split("}")[-1] == name:
+            return subelem
+    return None
+
+def find_subelem_list(elem, namelist):
+    for name in namelist:
+        elem = find_subelem(elem, name)
+        if elem is None:
+            return None
+    return elem
+
+path_to_description = ["graphicData", "wsp", "txbx", "txbxContent", "p", "r", "t"]
+path_to_id = ["graphicData", "pic", "blipFill", "blip"]
+path_to_picname = ["graphicData", "pic", "nvPicPr", "cNvPr"]
+
+def get_description(graphicselem):
+    e = find_subelem_list(graphicselem, path_to_description)
+    if e is not None:
+        return e.text
+    else:
+        return None
+
+def get_id(graphicselem):
+    elem = find_subelem_list(graphicselem, path_to_id)
+    if elem is not None:
+        try: 
+            return elem.attrib['{http://schemas.openxmlformats.org/officeDocument/2006/relationships}embed']
+        except KeyError:
+            print "Id tag found but no embed attribute"
+            return None
+    else:
+        return None
+
+def get_pic_name(graphicselem):
+    e = find_subelem_list(graphicselem, path_to_picname)
+    if e is not None:
+        try:
+            return e.attrib['name']
+        except KeyError:
+            print "Pic tag found but no name attribute"
+            return None
+    else:
+        return None
+
+
 
 def opendocx(file):
     '''Open a docx file, return a document XML tree'''
@@ -161,7 +262,7 @@ def makeelement(tagname, tagtext=None, nsprefix='w', attributes=None, attrnspref
         # If they haven't bothered setting attribute namespace, use an empty string
         # (equivalent of no namespace)
         if not attrnsprefix:
-            # Quick hack: it seems every element that has a 'w' nsprefix for its tag uses the same prefix for it's attributes
+            # Quick hack: it seems every element that has a 'w' nsprefix for its tag uses the same prefix for its attributes
             if nsprefix == 'w':
                 attributenamespace = namespace
             else:
@@ -582,7 +683,7 @@ def search(document, search):
 
 
 def replace(document, search, replace):
-    '''Replace all occurences of string with a different string, return updated document'''
+    ''' Replace all occurences of string with a different string, return updated document'''
     newdocument = document
     searchre = re.compile(search)
     for element in newdocument.iter():
@@ -869,17 +970,19 @@ def getdocumenttext(document):
     return paratextlist
 
 
-def coreproperties(title, subject, creator, keywords, lastmodifiedby=None):
+def coreproperties(**kwargs):
     '''Create core properties (common document properties referred to in the 'Dublin Core' specification).
     See appproperties() for other stuff.'''
     coreprops = makeelement('coreProperties', nsprefix='cp')
-    coreprops.append(makeelement('title', tagtext=title, nsprefix='dc'))
-    coreprops.append(makeelement('subject', tagtext=subject, nsprefix='dc'))
-    coreprops.append(makeelement('creator', tagtext=creator, nsprefix='dc'))
-    coreprops.append(makeelement('keywords', tagtext=','.join(keywords), nsprefix='cp'))
-    if not lastmodifiedby:
-        lastmodifiedby = creator
-    coreprops.append(makeelement('lastModifiedBy', tagtext=lastmodifiedby, nsprefix='cp'))
+    for s in ['title', 'subject', 'creator']:
+        if s in kwargs:
+            coreprops.append(makeelement(s, tagtext=kwargs[s], nsprefix='dc'))
+    if 'keywords' in kwargs:
+        coreprops.append(makeelement('keywords', tagtext=','.join(kwargs['keywords']), nsprefix='cp'))
+    if 'lastmodifiedby' in kwargs:
+        coreprops.append(makeelement('lastModifiedBy', tagtext=kwargs['lastmodifiedby'], nsprefix='cp'))
+    elif 'creator' in kwargs:
+        coreprops.append(makeelement('lastModifiedBy', tagtext=kwargs['creator'], nsprefix='cp'))
     coreprops.append(makeelement('revision', tagtext='1', nsprefix='cp'))
     coreprops.append(makeelement('category', tagtext='Examples', nsprefix='cp'))
     coreprops.append(makeelement('description', tagtext='Examples', nsprefix='dc'))
