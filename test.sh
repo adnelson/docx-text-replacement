@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf experimenting/fail*
-./at_replace.py experimenting/orig_awesome.docx experimenting/fail.docx
+rm -rf experimenting/table*
+./at_replace.py experimenting/table.docx experimenting/table2.docx
 cd experimenting
-unzip fail.docx -d fail
+unzip table2.docx -d table2
