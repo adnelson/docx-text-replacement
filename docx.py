@@ -21,6 +21,7 @@ import time
 import os
 from os.path import join
 import subprocess
+import random
 
 log = logging.getLogger(__name__)
 
@@ -61,6 +62,16 @@ nsprefixes = {
     # Dublin Core document properties
     'dcmitype': 'http://purl.org/dc/dcmitype/',
     'dcterms':  'http://purl.org/dc/terms/'}
+
+def make_dummy_table(nrows, ncols, multiplier = 1):
+    dummy_table = []
+    for i in range(nrows * ncols):
+        x = (i * multiplier).__str__()
+        if i % ncols == 0:
+            dummy_table.append([x])
+        else:
+            dummy_table[-1].append(x)
+    return dummy_table
 
 class DocX():
     def __init__(self, filename = None):
@@ -189,9 +200,28 @@ class DocX():
                         self.set_image_relation(rid, replacements[picname])
                     else:
                         print "Relation id for image %s not present; can't replace" % picname
+    def find_tables(self):
+        for elem in self.get_document().iter():
+            if elem.tag.split("}")[-1] == "tbl":
+                try:
+                    nrows = get_num_rows(elem)
+                    ncols = get_num_columns(elem)
+                    # print "Found a table"
+                    # print "This table has %d rows and %d columns" % (nrows, ncols)
+                    nrows = nrows * random.randrange(10) + 1
+                    dummy = make_dummy_table(nrows, ncols, random.randrange(10) + 1)
+                    # print "appending rows:", dummy
+                    for row in dummy:
+                        elem.append(make_row(row))
+                    # print "done"
+                except Exception as e:
+                    print e
+                    print "Error reading or constructing table element, no rows added"
+                    return
+    # end class DocX
 
 def find_subelem(elem, name):
-    ''' Given an etree graphic element, finds its description '''
+    ''' Given an etree graphic element, finds a subelement with given name '''
     for subelem in elem:
         if subelem.tag.split("}")[-1] == name:
             return subelem
@@ -237,7 +267,19 @@ def get_pic_name(graphicselem):
     else:
         return None
 
+def get_num_columns(table_elem):
+    grid = find_subelem_list(table_elem, ["tblGrid"])
+    if grid is not None:
+        return len(grid)
+    else:
+        raise Exception("tblGrid element could not be found in table")
 
+def get_num_rows(table_elem):
+    count = 0
+    for subelem in table_elem:
+        if subelem.tag.split("}")[-1] == "tr":
+            count += 1
+    return count
 
 def opendocx(file):
     '''Open a docx file, return a document XML tree'''
@@ -576,6 +618,35 @@ def table(contents, heading=True, colw=None, cwunit='dxa', tblw=0, twunit='auto'
         table.append(row)
     return table
 
+def make_row(contentrow, colw = None, cwunit = "dxa", celstyle = None):
+    row = makeelement('tr')
+    i = 0
+    for content in contentrow:
+        cell = makeelement('tc')
+        # Properties
+        cellprops = makeelement('tcPr')
+        if colw:
+            wattr = {'w': str(colw[i]), 'type': cwunit}
+        else:
+            wattr = {'w': '0', 'type': 'auto'}
+        cellwidth = makeelement('tcW', attributes=wattr)
+        cellprops.append(cellwidth)
+        cell.append(cellprops)
+        # Paragraph (Content)
+        if not isinstance(content, (list, tuple)):
+            content = [content]
+        for c in content:
+            if isinstance(c, etree._Element):
+                cell.append(c)
+            else:
+                if celstyle and 'align' in celstyle[i].keys():
+                    align = celstyle[i]['align']
+                else:
+                    align = 'left'
+                cell.append(paragraph(c, jc=align))
+        row.append(cell)
+        i += 1
+    return row
 
 def picture(relationshiplist, picname, picdescription, pixelwidth=None, pixelheight=None, nochangeaspect=True, nochangearrowheads=True):
     '''Take a relationshiplist, picture file name, and return a paragraph containing the image
