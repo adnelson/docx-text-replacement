@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# rm -rf experimenting/addtableflag*
-./at_replace.py experimenting/addtableflag.docx experimenting/addtableflag.docx
+rm -rf experimenting/tester1*
+./at_replace.py experimenting/blibber.docx experimenting/tester1.docx
 cd experimenting
-unzip addtableflag.docx -d addtableflag
+unzip tester1.docx -d tester1

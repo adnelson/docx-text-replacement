@@ -3,6 +3,7 @@ import sys
 from docx import DocX 
 import re
 import random
+import string
 
 VERBOSE = True
 
@@ -15,20 +16,21 @@ lorem_ipsum = ("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               "mollit anim id est laborum.").split()
 
 def replace_tags(line, replacements, specific_words = None):
-    subs = re.split(r'(@[^@<]*@?)', line)
+    subs = re.split(r'(@[^@]*@)', line)
     res = ""
     count = 0
     for sub in subs:
         if len(sub) > 2 and sub[0] == sub[-1] == '@':
-            if specific_words:
-                if sub[1:-1] not in specific_words:
-                    res += sub
-                    continue
+            # if we've given a specific word list, and this isn't in it:
+            if specific_words and sub[1:-1] not in specific_words:
+                res += sub # just append as-is and continue
+                continue
             try:
                 res += replacements[sub[1:-1]].__str__()
                 if VERBOSE: "replacing '%s' with '%s'" % (sub, replacements[sub[1:-1]])
                 count += 1
             except KeyError:
+                #if it's not in our lookup table, append as-is
                 print "Key '%s' not found in replacements!" % sub
                 res += sub
         else:
@@ -52,8 +54,9 @@ def generate_random(document):
             gen(elem.text)
     return replacements
 
-def make_replacements(document, replacements, specific_words = None):
+def make_replacements(dx, replacements, specific_words = None):
     ''' Finds and makes all of the replacements. '''
+    document = dx.get_document()
     count = 0
     for elem in document.iter():
         if elem.text:
@@ -61,13 +64,23 @@ def make_replacements(document, replacements, specific_words = None):
             count += c
     print "Made %d replacements" % count
 
+def random_str(n):
+    return ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(n))
+
+
+table_replacements = {
+    "TABLE1": [[random.choice(lorem_ipsum) for j in range(7)] for i in range(5)],
+    "TABLE2": [[random.choice(lorem_ipsum) for j in range(7)] for i in range(3)]
+}
+
 def process_file(filename, replacements = None, output = None, save = True):
     ''' Given a .docx filename, makes replacements and saves the document '''
     # try:
     dx = DocX(filename)
-    dx.find_tables()
-    # if replacements is None:
-    #     replacements = generate_random(dx.get_document())
+    dx.fill_tables(table_replacements)
+    if replacements is None:
+        replacements = generate_random(dx.get_document())
+    make_replacements(dx, replacements)
     # dx.replace_images_from_dic({"awesome.png": "more_awesome.png"})
     if save: 
         dx.save(output)

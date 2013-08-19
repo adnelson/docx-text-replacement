@@ -200,37 +200,71 @@ class DocX():
                         self.set_image_relation(rid, replacements[picname])
                     else:
                         print "Relation id for image %s not present; can't replace" % picname
-    def find_tables(self):
+    def fill_tables(self, table_replacements):
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "tbl":
                 try:
                     nrows = get_num_rows(elem)
                     ncols = get_num_columns(elem)
-                    # print "Found a table"
-                    # print "This table has %d rows and %d columns" % (nrows, ncols)
-                    nrows = nrows * random.randrange(10) + 1
-                    dummy = make_dummy_table(nrows, ncols, random.randrange(10) + 1)
-                    # print "appending rows:", dummy
-                    for row in dummy:
-                        elem.append(make_row(row))
-                    # print "done"
+                    if nrows > 0:
+                        firstrowindex = find_subelem_index(elem, "tr")
+                        if firstrowindex is None:
+                            raise Exception("No row found in table")
+                        firstrow = elem[firstrowindex]
+                        source_elem = find_subelem_list(firstrow, ["tc", "p", "r", "t"])
+
+                        if source_elem is None:
+                            raise Exception("Could not find element describing source")
+
+                        tags = re.findall(r'@@([^@]+)@@', source_elem.text)
+
+                        if not tags:
+                            raise Exception("Error: no @@ tag found to describe source")
+
+                        source = tags[0]
+                        print "Querying dictionary for '%s' table" % source
+                        if source not in table_replacements:
+                            raise Exception("Error: couldn't find %s in replacements dict" % source)
+                        tbl_ncols = len(table_replacements[source][0])
+                        if tbl_ncols != ncols:
+                            raise Exception("Error: should have %d columns, but source has %d columns" % (ncols, tbl_ncols))
+                        first = True
+                        for row in table_replacements[source]:
+                            if first:
+                                elem[firstrowindex] = make_row(row)
+                                first = False
+                            else:
+                                elem.append(make_row(row))
                 except Exception as e:
                     print e
                     print "Error reading or constructing table element, no rows added"
                     return
-    # end class DocX
+
+    #####################                    
+    # end of class DocX #
+    #####################
 
 def find_subelem(elem, name):
-    ''' Given an etree graphic element, finds a subelement with given name '''
+    ''' Given an etree graphic element, finds first subelement with given name '''
     for subelem in elem:
         if subelem.tag.split("}")[-1] == name:
             return subelem
+    return None
+
+def find_subelem_index(elem, name):
+    ''' Given an etree graphic element, finds index of first subelement with given name '''
+    i = 0
+    for subelem in elem:
+        if subelem.tag.split("}")[-1] == name:
+            return i
+        i += 1
     return None
 
 def find_subelem_list(elem, namelist):
     for name in namelist:
         elem = find_subelem(elem, name)
         if elem is None:
+            print "find_subelem_list failed at element %s" % name
             return None
     return elem
 
