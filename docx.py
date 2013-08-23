@@ -206,35 +206,38 @@ class DocX():
                 try:
                     nrows = get_num_rows(elem)
                     ncols = get_num_columns(elem)
-                    if nrows > 0:
-                        firstrowindex = find_subelem_index(elem, "tr")
-                        if firstrowindex is None:
-                            raise Exception("No row found in table")
-                        firstrow = elem[firstrowindex]
-                        source_elem = find_subelem_list(firstrow, ["tc", "p", "r", "t"])
+                    for i in range(len(elem)):
+                        if elem[i].tag.split("}")[-1] == "tr":
+                            rowelem = elem[i]
+                            col = find_subelem_list(rowelem, ["tc", "p", "r", "t"])
 
-                        if source_elem is None:
-                            raise Exception("Could not find element describing source")
+                            if col is None:
+                                raise Exception("Could not find column")
 
-                        tags = re.findall(r'@@([^@]+)@@', source_elem.text)
+                            tags = re.findall(r'@@([^@]+)@@', col.text)
 
-                        if not tags:
-                            raise Exception("Error: no @@ tag found to describe source")
-
-                        source = tags[0]
-                        print "Querying dictionary for '%s' table" % source
-                        if source not in table_replacements:
-                            raise Exception("Error: couldn't find %s in replacements dict" % source)
-                        tbl_ncols = len(table_replacements[source][0])
-                        if tbl_ncols != ncols:
-                            raise Exception("Error: should have %d columns, but source has %d columns" % (ncols, tbl_ncols))
-                        first = True
-                        for row in table_replacements[source]:
-                            if first:
-                                elem[firstrowindex] = make_row(row)
-                                first = False
-                            else:
-                                elem.append(make_row(row))
+                            if not tags:
+                                print "No @@ tag found to describe source in row %d" % i
+                                continue
+                            source = tags[0]
+                            print "Found table tag %s, querying dictionary" % source
+                            if source not in table_replacements:
+                                raise Exception("Error: couldn't find %s in replacements dict" % source)
+                            tbl_ncols = len(table_replacements[source][0])
+                            if tbl_ncols != ncols:
+                                raise Exception("Error: should have %d columns, but "
+                                                "source has %d columns" % (ncols, tbl_ncols))
+                            first = True
+                            j = 0
+                            for row in table_replacements[source]:
+                                if first:
+                                    elem[i] = make_row(row)
+                                    first = False
+                                else:
+                                    elem.append(make_row(row))
+                                j += 1
+                            print "Inserted %d rows into table %s" % (j, source)
+                            return
                 except Exception as e:
                     print e
                     print "Error reading or constructing table element, no rows added"
