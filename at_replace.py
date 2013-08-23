@@ -77,10 +77,10 @@ def process_file(filename, replacements = None, output = None, save = True):
     ''' Given a .docx filename, makes replacements and saves the document '''
     # try:
     dx = DocX(filename)
-    dx.fill_tables(table_replacements)
-    if replacements is None:
-        replacements = generate_random(dx.get_document())
-    make_replacements(dx, replacements)
+    # dx.fill_tables(table_replacements)
+    # if replacements is None:
+    #     replacements = generate_random(dx.get_document())
+    # make_replacements(dx, replacements)
     # dx.replace_images_from_dic({"awesome.png": "more_awesome.png"})
     if save: 
         dx.save(output)

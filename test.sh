@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf experimenting/tester1*
-./at_replace.py experimenting/blibber.docx experimenting/tester1.docx
 cd experimenting
-unzip tester1.docx -d tester1
+rm -rf minimal1*
+../docxreplace.py mock.docx minimal1.docx mock.json
+unzip minimal1.docx -d minimal1
