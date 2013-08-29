@@ -231,6 +231,21 @@ class DocX():
                             font_face = settings.get("font_face", None)
                             under_border = settings.get("under_border", False)
                             content = table_replacements[source][1]
+                            
+                            # if under_border:
+                            #     print "adding bottom border to table"
+                            #     # if we want an under_border, add it to the table. First,
+                            #     # see if the table alread has a border element:
+                            #     props = find_subelem(elem, "tblPr")
+                            #     if props is None:
+                            #         raise Exception("Couldn't find table properties")
+                            #     tableborders = find_subelem(props, "tblBorders")
+                            #     if tableborders is None :
+                            #         tableborders = makeelement('tblBorders')
+                            #         props.append(tableborders)
+                            #     bottom = makeelement("bottom", attributes={"sz":"4", "space":"0", "color":"000000"})
+                            #     tableborders.append(bottom)
+
                             tbl_ncols = len(content[0])
                             if tbl_ncols != ncols:
                                 raise Exception("Error: should have %d columns, but "
@@ -240,11 +255,13 @@ class DocX():
                             for row in content:
                                 if first:
                                     elem[i] = make_row(row, font_face=font_face, 
-                                                            font_size=font_size.__str__())
+                                                            font_size=font_size.__str__(),
+                                                            under_border = under_border)
                                     first = False
                                 else:
                                     elem.append(make_row(row, font_face=font_face,
-                                                              font_size=font_size.__str__()))
+                                                              font_size=font_size.__str__(),
+                                                              under_border = under_border))
                                 j += 1
                             print "Inserted %d rows into table %s" % (j, source)
                             break # only do it once for each table
@@ -450,13 +467,11 @@ def paragraph(paratext, style='BodyText', breakbefore=False, jc='left',
     if font_size is not None or font_face is not None:
         rPr = makeelement('rPr')
         if font_size is not None:
-            print "appending font_size element:", font_size
             sz = makeelement('sz', attributes={'val': font_size})
             szCs = makeelement('szCs', attributes={'val': font_size})
             rPr.append(sz)
             rPr.append(szCs)
         if font_size is not None:
-            print "appending font_face element:", font_face
             font = makeelement('rFonts', attributes={'ascii':font_face, 
                                                      'hAnsi': font_face})
             rPr.append(font)
@@ -469,13 +484,11 @@ def paragraph(paratext, style='BodyText', breakbefore=False, jc='left',
         rPr = makeelement('rPr')
         if font_size is not None or font_face is not None:
             if font_size is not None:
-                print "appending font_size element:", font_size
                 sz = makeelement('sz', attributes={'val': font_size})
                 szCs = makeelement('szCs', attributes={'val': font_size})
                 rPr.append(sz)
                 rPr.append(szCs)
             if font_size is not None:
-                print "appending font_face element:", font_face
                 font = makeelement('rFonts', attributes={'ascii':font_face, 
                                                          'hAnsi': font_face})
                 rPr.append(font)
@@ -694,7 +707,7 @@ def table(contents, heading=True, colw=None, cwunit='dxa', tblw=0, twunit='auto'
     return table
 
 def make_row(contentrow, colw = None, cwunit = "dxa", celstyle = None,
-             font_face = None, font_size = None):
+             font_face = None, font_size = None, under_border=False):
     row = makeelement('tr')
     i = 0
     for content in contentrow:
@@ -705,6 +718,11 @@ def make_row(contentrow, colw = None, cwunit = "dxa", celstyle = None,
             wattr = {'w': str(colw[i]), 'type': cwunit}
         else:
             wattr = {'w': '0', 'type': 'auto'}
+        if under_border:
+            bottom = makeelement('bottom', attributes={'val':'single', 'sz':'4',
+                                                        'space':'0', 'color':'auto'})
+            cellprops.append(bottom)
+
         cellwidth = makeelement('tcW', attributes=wattr)
         cellprops.append(cellwidth)
         cell.append(cellprops)
