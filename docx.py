@@ -203,6 +203,7 @@ class DocX():
     def fill_tables(self, table_replacements):
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "tbl":
+                print "Found a table tag, attempting to fill it in"
                 try:
                     nrows = get_num_rows(elem)
                     ncols = get_num_columns(elem)
@@ -217,7 +218,7 @@ class DocX():
                             tags = re.findall(r'@@([^@]+)@@', col.text)
 
                             if not tags:
-                                print "No @@ tag found to describe source in row %d" % i
+                                # print "No @@ tag found to describe source in row %d" % i
                                 continue
                             source = tags[0]
                             print "Found table tag %s, querying dictionary" % source
@@ -237,7 +238,7 @@ class DocX():
                                     elem.append(make_row(row))
                                 j += 1
                             print "Inserted %d rows into table %s" % (j, source)
-                            return
+                            break # only do it once for each table
                 except Exception as e:
                     print e
                     print "Error reading or constructing table element, no rows added"
@@ -267,7 +268,7 @@ def find_subelem_list(elem, namelist):
     for name in namelist:
         elem = find_subelem(elem, name)
         if elem is None:
-            print "find_subelem_list failed at element %s" % name
+            # print "find_subelem_list failed at element %s" % name
             return None
     return elem
 

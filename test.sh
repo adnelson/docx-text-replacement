@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd experimenting
-rm -rf minimal1*
-../docxreplace.py mock.docx minimal1.docx mock.json
-unzip minimal1.docx -d minimal1
+cd experimenting/graytv
+rm -rf graytv.docx graytv
+../../docxreplace.py moodys_june.docx graytv.docx replace.json
+unzip graytv.docx -d graytv

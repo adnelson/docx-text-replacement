@@ -11,14 +11,16 @@ def replace_tags(line, replacements, specific_words = None):
     res = ""
     count = 0
     for sub in subs:
-        if len(sub) > 2 and sub[0] == sub[-1] == '@':
+        if is_key(sub):
             # if we've given a specific word list, and this isn't in it:
             if specific_words and sub[1:-1] not in specific_words:
                 res += sub # just append as-is and continue
                 continue
             try:
-                res += replacements[sub[1:-1]].__str__()
-                if VERBOSE: "replacing '%s' with '%s'" % (sub, replacements[sub[1:-1]])
+                key = sub[1:-1]
+                if VERBOSE: 
+                    print "replacing '%s' with '%s'" % (key, replacements[key])
+                res += replacements[key].__str__()
                 count += 1
             except KeyError:
                 #if it's not in our lookup table, append as-is
@@ -27,6 +29,9 @@ def replace_tags(line, replacements, specific_words = None):
         else:
             res += sub
     return res, count
+
+def is_key(string):
+    return len(string) > 2 and string[0] == string[-1] == '@'
 
 def make_replacements(dx, replacements, specific_words = None):
     ''' Finds and makes all of the replacements. '''
@@ -52,9 +57,13 @@ def process_file(filename, replacements = None, output = None, save = True):
     text = replacements.get("text", {})
     tables = replacements.get("tables", {})
     images = replacements.get("images", {})
+    print "replacing text..."
     make_replacements(dx, text)
+    print "finished replacing text, next replacing tables"
     dx.fill_tables(tables)
+    print "finished replacing tables, next images"
     dx.replace_images_from_dic(images)
+    print "done, saving..."
     if save: dx.save(output)
 
 if __name__ == '__main__':
