@@ -203,7 +203,6 @@ class DocX():
     def fill_tables(self, table_replacements):
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "tbl":
-                print "Found a table tag, attempting to fill it in"
                 try:
                     nrows = get_num_rows(elem)
                     ncols = get_num_columns(elem)
@@ -224,18 +223,28 @@ class DocX():
                             print "Found table tag %s, querying dictionary" % source
                             if source not in table_replacements:
                                 raise Exception("Error: couldn't find %s in replacements dict" % source)
-                            tbl_ncols = len(table_replacements[source][0])
+                            settings = table_replacements[source][0]
+                            font_size = settings.get("font_size", None)
+                            # hack because fonts are half-size for some reason
+                            if font_size is not None:
+                                font_size *= 2
+                            font_face = settings.get("font_face", None)
+                            under_border = settings.get("under_border", False)
+                            content = table_replacements[source][1]
+                            tbl_ncols = len(content[0])
                             if tbl_ncols != ncols:
                                 raise Exception("Error: should have %d columns, but "
                                                 "source has %d columns" % (ncols, tbl_ncols))
                             first = True
                             j = 0
-                            for row in table_replacements[source]:
+                            for row in content:
                                 if first:
-                                    elem[i] = make_row(row)
+                                    elem[i] = make_row(row, font_face=font_face, 
+                                                            font_size=font_size.__str__())
                                     first = False
                                 else:
-                                    elem.append(make_row(row))
+                                    elem.append(make_row(row, font_face=font_face,
+                                                              font_size=font_size.__str__()))
                                 j += 1
                             print "Inserted %d rows into table %s" % (j, source)
                             break # only do it once for each table
@@ -398,7 +407,8 @@ def pagebreak(type='page', orient='portrait'):
     return pagebreak
 
 
-def paragraph(paratext, style='BodyText', breakbefore=False, jc='left'):
+def paragraph(paratext, style='BodyText', breakbefore=False, jc='left', 
+              font_face=None, font_size=None):
     '''Make a new paragraph element, containing a run, and some text.
     Return the paragraph element.
 
@@ -436,12 +446,39 @@ def paragraph(paratext, style='BodyText', breakbefore=False, jc='left'):
     pJc = makeelement('jc', attributes={'val': jc})
     pPr.append(pStyle)
     pPr.append(pJc)
+    # if we've specified a font size/face, add them here
+    if font_size is not None or font_face is not None:
+        rPr = makeelement('rPr')
+        if font_size is not None:
+            print "appending font_size element:", font_size
+            sz = makeelement('sz', attributes={'val': font_size})
+            szCs = makeelement('szCs', attributes={'val': font_size})
+            rPr.append(sz)
+            rPr.append(szCs)
+        if font_size is not None:
+            print "appending font_face element:", font_face
+            font = makeelement('rFonts', attributes={'ascii':font_face, 
+                                                     'hAnsi': font_face})
+            rPr.append(font)
+        pPr.append(rPr)
 
     # Add the text the run, and the run to the paragraph
     paragraph.append(pPr)
     for t in text:
         run = makeelement('r')
         rPr = makeelement('rPr')
+        if font_size is not None or font_face is not None:
+            if font_size is not None:
+                print "appending font_size element:", font_size
+                sz = makeelement('sz', attributes={'val': font_size})
+                szCs = makeelement('szCs', attributes={'val': font_size})
+                rPr.append(sz)
+                rPr.append(szCs)
+            if font_size is not None:
+                print "appending font_face element:", font_face
+                font = makeelement('rFonts', attributes={'ascii':font_face, 
+                                                         'hAnsi': font_face})
+                rPr.append(font)
         # Apply styles
         if t[1].find('b') > -1:
             b = makeelement('b')
@@ -656,7 +693,8 @@ def table(contents, heading=True, colw=None, cwunit='dxa', tblw=0, twunit='auto'
         table.append(row)
     return table
 
-def make_row(contentrow, colw = None, cwunit = "dxa", celstyle = None):
+def make_row(contentrow, colw = None, cwunit = "dxa", celstyle = None,
+             font_face = None, font_size = None):
     row = makeelement('tr')
     i = 0
     for content in contentrow:
@@ -681,7 +719,8 @@ def make_row(contentrow, colw = None, cwunit = "dxa", celstyle = None):
                     align = celstyle[i]['align']
                 else:
                     align = 'left'
-                cell.append(paragraph(c, jc=align))
+                cell.append(paragraph(c, jc=align, font_face=font_face, 
+                                                    font_size=font_size))
         row.append(cell)
         i += 1
     return row
