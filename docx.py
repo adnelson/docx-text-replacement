@@ -225,27 +225,16 @@ class DocX():
                                 raise Exception("Error: couldn't find %s in replacements dict" % source)
                             settings = table_replacements[source][0]
                             font_size = settings.get("font_size", None)
-                            # hack because fonts are half-size for some reason
+                            # hack because fonts appear half-size for some reason
                             if font_size is not None:
                                 font_size *= 2
                             font_face = settings.get("font_face", None)
+                            # get the border settings
+                            borders = settings.get("borders", [])
+
                             under_border = settings.get("under_border", False)
                             content = table_replacements[source][1]
                             
-                            # if under_border:
-                            #     print "adding bottom border to table"
-                            #     # if we want an under_border, add it to the table. First,
-                            #     # see if the table alread has a border element:
-                            #     props = find_subelem(elem, "tblPr")
-                            #     if props is None:
-                            #         raise Exception("Couldn't find table properties")
-                            #     tableborders = find_subelem(props, "tblBorders")
-                            #     if tableborders is None :
-                            #         tableborders = makeelement('tblBorders')
-                            #         props.append(tableborders)
-                            #     bottom = makeelement("bottom", attributes={"sz":"4", "space":"0", "color":"000000"})
-                            #     tableborders.append(bottom)
-
                             tbl_ncols = len(content[0])
                             if tbl_ncols != ncols:
                                 raise Exception("Error: should have %d columns, but "
@@ -256,12 +245,12 @@ class DocX():
                                 if first:
                                     elem[i] = make_row(row, font_face=font_face, 
                                                             font_size=font_size.__str__(),
-                                                            under_border = under_border)
+                                                            borders = borders)
                                     first = False
                                 else:
                                     elem.append(make_row(row, font_face=font_face,
                                                               font_size=font_size.__str__(),
-                                                              under_border = under_border))
+                                                              borders = borders))
                                 j += 1
                             print "Inserted %d rows into table %s" % (j, source)
                             break # only do it once for each table
@@ -707,7 +696,7 @@ def table(contents, heading=True, colw=None, cwunit='dxa', tblw=0, twunit='auto'
     return table
 
 def make_row(contentrow, colw = None, cwunit = "dxa", celstyle = None,
-             font_face = None, font_size = None, under_border=False):
+             font_face = None, font_size = None, borders=[]):
     row = makeelement('tr')
     i = 0
     for content in contentrow:
@@ -718,10 +707,16 @@ def make_row(contentrow, colw = None, cwunit = "dxa", celstyle = None,
             wattr = {'w': str(colw[i]), 'type': cwunit}
         else:
             wattr = {'w': '0', 'type': 'auto'}
-        if under_border:
+        do_bottom = True if "bottom" in borders else False
+        do_top = True if "top" in borders else False
+        if do_bottom:
             bottom = makeelement('bottom', attributes={'val':'single', 'sz':'4',
                                                         'space':'0', 'color':'auto'})
             cellprops.append(bottom)
+        if do_top:
+            top = makeelement('top', attributes={'val':'single', 'sz':'4',
+                                                        'space':'0', 'color':'auto'})
+            cellprops.append(top)
 
         cellwidth = makeelement('tcW', attributes=wattr)
         cellprops.append(cellwidth)
