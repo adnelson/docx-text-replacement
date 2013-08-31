@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mo="http://schemas.microsoft.com/office/mac/office/2008/main" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="urn:schemas-microsoft-com:mac:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 wp14">
+  <w:docDefaults>
+    <w:rPrDefault>
+      <w:rPr>
+        <w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+        <w:lang w:val="en-US" w:eastAsia="en-US" w:bidi="ar-SA"/>
+      </w:rPr>
+    </w:rPrDefault>
+    <w:pPrDefault/>
+  </w:docDefaults>
+  <w:latentStyles w:defLockedState="0" w:defUIPriority="99" w:defSemiHidden="1" w:defUnhideWhenUsed="1" w:defQFormat="0" w:count="276">
+    <w:lsdException w:name="Normal" w:semiHidden="0" w:uiPriority="0" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="heading 1" w:semiHidden="0" w:uiPriority="9" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="heading 2" w:uiPriority="9" w:qFormat="1"/>
+    <w:lsdException w:name="heading 3" w:uiPriority="9" w:qFormat="1"/>
+    <w:lsdException w:name="heading 4" w:uiPriority="9" w:qFormat="1"/>
+    <w:lsdException w:name="heading 5" w:uiPriority="9" w:qFormat="1"/>
+    <w:lsdException w:name="heading 6" w:uiPriority="9" w:qFormat="1"/>
+    <w:lsdException w:name="heading 7" w:uiPriority="9" w:qFormat="1"/>
+    <w:lsdException w:name="heading 8" w:uiPriority="9" w:qFormat="1"/>
+    <w:lsdException w:name="heading 9" w:uiPriority="9" w:qFormat="1"/>
+    <w:lsdException w:name="toc 1" w:uiPriority="39"/>
+    <w:lsdException w:name="toc 2" w:uiPriority="39"/>
+    <w:lsdException w:name="toc 3" w:uiPriority="39"/>
+    <w:lsdException w:name="toc 4" w:uiPriority="39"/>
+    <w:lsdException w:name="toc 5" w:uiPriority="39"/>
+    <w:lsdException w:name="toc 6" w:uiPriority="39"/>
+    <w:lsdException w:name="toc 7" w:uiPriority="39"/>
+    <w:lsdException w:name="toc 8" w:uiPriority="39"/>
+    <w:lsdException w:name="toc 9" w:uiPriority="39"/>
+    <w:lsdException w:name="caption" w:semiHidden="0" w:uiPriority="35" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Title" w:semiHidden="0" w:uiPriority="10" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Default Paragraph Font" w:uiPriority="1"/>
+    <w:lsdException w:name="Subtitle" w:semiHidden="0" w:uiPriority="11" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Strong" w:semiHidden="0" w:uiPriority="22" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Emphasis" w:semiHidden="0" w:uiPriority="20" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Table Grid" w:semiHidden="0" w:uiPriority="59" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Placeholder Text" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="No Spacing" w:semiHidden="0" w:uiPriority="1" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Light Shading" w:semiHidden="0" w:uiPriority="60" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light List" w:semiHidden="0" w:uiPriority="61" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Grid" w:semiHidden="0" w:uiPriority="62" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 1" w:semiHidden="0" w:uiPriority="63" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 2" w:semiHidden="0" w:uiPriority="64" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 1" w:semiHidden="0" w:uiPriority="65" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 2" w:semiHidden="0" w:uiPriority="66" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 1" w:semiHidden="0" w:uiPriority="67" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 2" w:semiHidden="0" w:uiPriority="68" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 3" w:semiHidden="0" w:uiPriority="69" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Dark List" w:semiHidden="0" w:uiPriority="70" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Shading" w:semiHidden="0" w:uiPriority="71" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful List" w:semiHidden="0" w:uiPriority="72" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Grid" w:semiHidden="0" w:uiPriority="73" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Shading Accent 1" w:semiHidden="0" w:uiPriority="60" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light List Accent 1" w:semiHidden="0" w:uiPriority="61" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Grid Accent 1" w:semiHidden="0" w:uiPriority="62" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 1 Accent 1" w:semiHidden="0" w:uiPriority="63" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 2 Accent 1" w:semiHidden="0" w:uiPriority="64" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 1 Accent 1" w:semiHidden="0" w:uiPriority="65" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Revision" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="List Paragraph" w:semiHidden="0" w:uiPriority="34" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Quote" w:semiHidden="0" w:uiPriority="29" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Intense Quote" w:semiHidden="0" w:uiPriority="30" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Medium List 2 Accent 1" w:semiHidden="0" w:uiPriority="66" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 1 Accent 1" w:semiHidden="0" w:uiPriority="67" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 2 Accent 1" w:semiHidden="0" w:uiPriority="68" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 3 Accent 1" w:semiHidden="0" w:uiPriority="69" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Dark List Accent 1" w:semiHidden="0" w:uiPriority="70" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Shading Accent 1" w:semiHidden="0" w:uiPriority="71" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful List Accent 1" w:semiHidden="0" w:uiPriority="72" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Grid Accent 1" w:semiHidden="0" w:uiPriority="73" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Shading Accent 2" w:semiHidden="0" w:uiPriority="60" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light List Accent 2" w:semiHidden="0" w:uiPriority="61" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Grid Accent 2" w:semiHidden="0" w:uiPriority="62" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 1 Accent 2" w:semiHidden="0" w:uiPriority="63" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 2 Accent 2" w:semiHidden="0" w:uiPriority="64" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 1 Accent 2" w:semiHidden="0" w:uiPriority="65" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 2 Accent 2" w:semiHidden="0" w:uiPriority="66" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 1 Accent 2" w:semiHidden="0" w:uiPriority="67" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 2 Accent 2" w:semiHidden="0" w:uiPriority="68" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 3 Accent 2" w:semiHidden="0" w:uiPriority="69" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Dark List Accent 2" w:semiHidden="0" w:uiPriority="70" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Shading Accent 2" w:semiHidden="0" w:uiPriority="71" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful List Accent 2" w:semiHidden="0" w:uiPriority="72" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Grid Accent 2" w:semiHidden="0" w:uiPriority="73" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Shading Accent 3" w:semiHidden="0" w:uiPriority="60" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light List Accent 3" w:semiHidden="0" w:uiPriority="61" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Grid Accent 3" w:semiHidden="0" w:uiPriority="62" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 1 Accent 3" w:semiHidden="0" w:uiPriority="63" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 2 Accent 3" w:semiHidden="0" w:uiPriority="64" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 1 Accent 3" w:semiHidden="0" w:uiPriority="65" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 2 Accent 3" w:semiHidden="0" w:uiPriority="66" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 1 Accent 3" w:semiHidden="0" w:uiPriority="67" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 2 Accent 3" w:semiHidden="0" w:uiPriority="68" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 3 Accent 3" w:semiHidden="0" w:uiPriority="69" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Dark List Accent 3" w:semiHidden="0" w:uiPriority="70" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Shading Accent 3" w:semiHidden="0" w:uiPriority="71" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful List Accent 3" w:semiHidden="0" w:uiPriority="72" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Grid Accent 3" w:semiHidden="0" w:uiPriority="73" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Shading Accent 4" w:semiHidden="0" w:uiPriority="60" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light List Accent 4" w:semiHidden="0" w:uiPriority="61" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Grid Accent 4" w:semiHidden="0" w:uiPriority="62" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 1 Accent 4" w:semiHidden="0" w:uiPriority="63" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 2 Accent 4" w:semiHidden="0" w:uiPriority="64" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 1 Accent 4" w:semiHidden="0" w:uiPriority="65" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 2 Accent 4" w:semiHidden="0" w:uiPriority="66" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 1 Accent 4" w:semiHidden="0" w:uiPriority="67" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 2 Accent 4" w:semiHidden="0" w:uiPriority="68" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 3 Accent 4" w:semiHidden="0" w:uiPriority="69" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Dark List Accent 4" w:semiHidden="0" w:uiPriority="70" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Shading Accent 4" w:semiHidden="0" w:uiPriority="71" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful List Accent 4" w:semiHidden="0" w:uiPriority="72" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Grid Accent 4" w:semiHidden="0" w:uiPriority="73" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Shading Accent 5" w:semiHidden="0" w:uiPriority="60" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light List Accent 5" w:semiHidden="0" w:uiPriority="61" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Grid Accent 5" w:semiHidden="0" w:uiPriority="62" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 1 Accent 5" w:semiHidden="0" w:uiPriority="63" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 2 Accent 5" w:semiHidden="0" w:uiPriority="64" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 1 Accent 5" w:semiHidden="0" w:uiPriority="65" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 2 Accent 5" w:semiHidden="0" w:uiPriority="66" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 1 Accent 5" w:semiHidden="0" w:uiPriority="67" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 2 Accent 5" w:semiHidden="0" w:uiPriority="68" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 3 Accent 5" w:semiHidden="0" w:uiPriority="69" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Dark List Accent 5" w:semiHidden="0" w:uiPriority="70" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Shading Accent 5" w:semiHidden="0" w:uiPriority="71" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful List Accent 5" w:semiHidden="0" w:uiPriority="72" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Grid Accent 5" w:semiHidden="0" w:uiPriority="73" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Shading Accent 6" w:semiHidden="0" w:uiPriority="60" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light List Accent 6" w:semiHidden="0" w:uiPriority="61" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Light Grid Accent 6" w:semiHidden="0" w:uiPriority="62" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 1 Accent 6" w:semiHidden="0" w:uiPriority="63" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Shading 2 Accent 6" w:semiHidden="0" w:uiPriority="64" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 1 Accent 6" w:semiHidden="0" w:uiPriority="65" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium List 2 Accent 6" w:semiHidden="0" w:uiPriority="66" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 1 Accent 6" w:semiHidden="0" w:uiPriority="67" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 2 Accent 6" w:semiHidden="0" w:uiPriority="68" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Medium Grid 3 Accent 6" w:semiHidden="0" w:uiPriority="69" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Dark List Accent 6" w:semiHidden="0" w:uiPriority="70" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Shading Accent 6" w:semiHidden="0" w:uiPriority="71" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful List Accent 6" w:semiHidden="0" w:uiPriority="72" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Colorful Grid Accent 6" w:semiHidden="0" w:uiPriority="73" w:unhideWhenUsed="0"/>
+    <w:lsdException w:name="Subtle Emphasis" w:semiHidden="0" w:uiPriority="19" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Intense Emphasis" w:semiHidden="0" w:uiPriority="21" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Subtle Reference" w:semiHidden="0" w:uiPriority="31" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Intense Reference" w:semiHidden="0" w:uiPriority="32" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Book Title" w:semiHidden="0" w:uiPriority="33" w:unhideWhenUsed="0" w:qFormat="1"/>
+    <w:lsdException w:name="Bibliography" w:uiPriority="37"/>
+    <w:lsdException w:name="TOC Heading" w:uiPriority="39" w:qFormat="1"/>
+  </w:latentStyles>
+  <w:style w:type="paragraph" w:default="1" w:styleId="Normal">
+    <w:name w:val="Normal"/>
+    <w:qFormat/>
+    <w:pPr>
+      <w:widowControl w:val="0"/>
+      <w:suppressAutoHyphens/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Cambria" w:eastAsia="&#65325;&#65331; &#26126;&#26397;" w:hAnsi="Cambria" w:cs="Cambria"/>
+      <w:sz w:val="24"/>
+      <w:szCs w:val="24"/>
+      <w:lang w:eastAsia="ar-SA"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:default="1" w:styleId="DefaultParagraphFont">
+    <w:name w:val="Default Paragraph Font"/>
+    <w:uiPriority w:val="1"/>
+    <w:semiHidden/>
+    <w:unhideWhenUsed/>
+  </w:style>
+  <w:style w:type="table" w:default="1" w:styleId="TableNormal">
+    <w:name w:val="Normal Table"/>
+    <w:uiPriority w:val="99"/>
+    <w:semiHidden/>
+    <w:unhideWhenUsed/>
+    <w:tblPr>
+      <w:tblInd w:w="0" w:type="dxa"/>
+      <w:tblCellMar>
+        <w:top w:w="0" w:type="dxa"/>
+        <w:left w:w="108" w:type="dxa"/>
+        <w:bottom w:w="0" w:type="dxa"/>
+        <w:right w:w="108" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr>
+  </w:style>
+  <w:style w:type="numbering" w:default="1" w:styleId="NoList">
+    <w:name w:val="No List"/>
+    <w:uiPriority w:val="99"/>
+    <w:semiHidden/>
+    <w:unhideWhenUsed/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num1z0">
+    <w:name w:val="WW8Num1z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Helvetica" w:hAnsi="Helvetica" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num2z0">
+    <w:name w:val="WW8Num2z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num3z0">
+    <w:name w:val="WW8Num3z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont">
+    <w:name w:val="WW-Default Paragraph Font"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1">
+    <w:name w:val="WW-Default Paragraph Font1"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11">
+    <w:name w:val="WW-Default Paragraph Font11"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111">
+    <w:name w:val="WW-Default Paragraph Font111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111">
+    <w:name w:val="WW-Default Paragraph Font1111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111">
+    <w:name w:val="WW-Default Paragraph Font11111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111">
+    <w:name w:val="WW-Default Paragraph Font111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111">
+    <w:name w:val="WW-Default Paragraph Font1111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111">
+    <w:name w:val="WW-Default Paragraph Font11111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num3z1">
+    <w:name w:val="WW8Num3z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num3z2">
+    <w:name w:val="WW8Num3z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num3z3">
+    <w:name w:val="WW8Num3z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num4z0">
+    <w:name w:val="WW8Num4z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num4z1">
+    <w:name w:val="WW8Num4z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num4z2">
+    <w:name w:val="WW8Num4z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num4z3">
+    <w:name w:val="WW8Num4z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="Absatz-Standardschriftart">
+    <w:name w:val="Absatz-Standardschriftart"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart">
+    <w:name w:val="WW-Absatz-Standardschriftart"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart1">
+    <w:name w:val="WW-Absatz-Standardschriftart1"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart11">
+    <w:name w:val="WW-Absatz-Standardschriftart11"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart111">
+    <w:name w:val="WW-Absatz-Standardschriftart111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart1111">
+    <w:name w:val="WW-Absatz-Standardschriftart1111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart11111">
+    <w:name w:val="WW-Absatz-Standardschriftart11111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart111111">
+    <w:name w:val="WW-Absatz-Standardschriftart111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart1111111">
+    <w:name w:val="WW-Absatz-Standardschriftart1111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart11111111">
+    <w:name w:val="WW-Absatz-Standardschriftart11111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-Absatz-Standardschriftart111111111">
+    <w:name w:val="WW-Absatz-Standardschriftart111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont11111111111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font11111111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont111111111111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font111111111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num1z1">
+    <w:name w:val="WW8Num1z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num1z2">
+    <w:name w:val="WW8Num1z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num1z3">
+    <w:name w:val="WW8Num1z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num2z1">
+    <w:name w:val="WW8Num2z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num2z2">
+    <w:name w:val="WW8Num2z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num2z3">
+    <w:name w:val="WW8Num2z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num5z0">
+    <w:name w:val="WW8Num5z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num5z1">
+    <w:name w:val="WW8Num5z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num5z2">
+    <w:name w:val="WW8Num5z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num5z3">
+    <w:name w:val="WW8Num5z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num6z0">
+    <w:name w:val="WW8Num6z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num6z1">
+    <w:name w:val="WW8Num6z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num6z2">
+    <w:name w:val="WW8Num6z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num6z3">
+    <w:name w:val="WW8Num6z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num7z0">
+    <w:name w:val="WW8Num7z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num7z1">
+    <w:name w:val="WW8Num7z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num7z2">
+    <w:name w:val="WW8Num7z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num7z3">
+    <w:name w:val="WW8Num7z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num8z0">
+    <w:name w:val="WW8Num8z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num8z1">
+    <w:name w:val="WW8Num8z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num8z2">
+    <w:name w:val="WW8Num8z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num8z3">
+    <w:name w:val="WW8Num8z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num9z0">
+    <w:name w:val="WW8Num9z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num9z1">
+    <w:name w:val="WW8Num9z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num9z2">
+    <w:name w:val="WW8Num9z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num9z3">
+    <w:name w:val="WW8Num9z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num10z0">
+    <w:name w:val="WW8Num10z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num10z1">
+    <w:name w:val="WW8Num10z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num10z2">
+    <w:name w:val="WW8Num10z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num10z3">
+    <w:name w:val="WW8Num10z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num11z0">
+    <w:name w:val="WW8Num11z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num11z1">
+    <w:name w:val="WW8Num11z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num11z2">
+    <w:name w:val="WW8Num11z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num11z3">
+    <w:name w:val="WW8Num11z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num12z0">
+    <w:name w:val="WW8Num12z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num12z1">
+    <w:name w:val="WW8Num12z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num12z2">
+    <w:name w:val="WW8Num12z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num12z3">
+    <w:name w:val="WW8Num12z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num13z0">
+    <w:name w:val="WW8Num13z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num13z1">
+    <w:name w:val="WW8Num13z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num13z2">
+    <w:name w:val="WW8Num13z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num13z3">
+    <w:name w:val="WW8Num13z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num14z0">
+    <w:name w:val="WW8Num14z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num14z1">
+    <w:name w:val="WW8Num14z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num14z2">
+    <w:name w:val="WW8Num14z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num14z3">
+    <w:name w:val="WW8Num14z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num15z0">
+    <w:name w:val="WW8Num15z0"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:strike w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="548DD4"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num15z1">
+    <w:name w:val="WW8Num15z1"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New" w:cs="Courier New"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num15z2">
+    <w:name w:val="WW8Num15z2"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Wingdings" w:hAnsi="Wingdings" w:cs="Wingdings"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW8Num15z3">
+    <w:name w:val="WW8Num15z3"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:cs="Symbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="WW-DefaultParagraphFont1111111111111111111111111111111111111111111111111111111111111">
+    <w:name w:val="WW-Default Paragraph Font1111111111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="HeaderChar">
+    <w:name w:val="Header Char"/>
+    <w:basedOn w:val="WW-DefaultParagraphFont1111111111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="FooterChar">
+    <w:name w:val="Footer Char"/>
+    <w:basedOn w:val="WW-DefaultParagraphFont1111111111111111111111111111111111111111111111111111111111111"/>
+  </w:style>
+  <w:style w:type="character" w:styleId="Hyperlink">
+    <w:name w:val="Hyperlink"/>
+    <w:rPr>
+      <w:color w:val="0000FF"/>
+      <w:u w:val="single"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="Bullets">
+    <w:name w:val="Bullets"/>
+    <w:rPr>
+      <w:rFonts w:ascii="OpenSymbol" w:eastAsia="OpenSymbol" w:hAnsi="OpenSymbol" w:cs="OpenSymbol"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="BalloonTextChar">
+    <w:name w:val="Balloon Text Char"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Lucida Grande" w:eastAsia="&#65325;&#65331; &#26126;&#26397;" w:hAnsi="Lucida Grande" w:cs="Cambria"/>
+      <w:sz w:val="18"/>
+      <w:szCs w:val="18"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:customStyle="1" w:styleId="BodyTextChar">
+    <w:name w:val="Body Text Char"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Cambria" w:eastAsia="&#65325;&#65331; &#26126;&#26397;" w:hAnsi="Cambria" w:cs="Cambria"/>
+      <w:sz w:val="24"/>
+      <w:szCs w:val="24"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="Heading">
+    <w:name w:val="Heading"/>
+    <w:basedOn w:val="Normal"/>
+    <w:next w:val="BodyText"/>
+    <w:pPr>
+      <w:keepNext/>
+      <w:spacing w:before="240" w:after="120"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Arial" w:eastAsia="SimSun" w:hAnsi="Arial" w:cs="Lucida Sans"/>
+      <w:sz w:val="28"/>
+      <w:szCs w:val="28"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="BodyText">
+    <w:name w:val="Body Text"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:spacing w:after="120"/>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="List">
+    <w:name w:val="List"/>
+    <w:basedOn w:val="BodyText"/>
+    <w:rPr>
+      <w:rFonts w:cs="Lucida Sans"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="Caption">
+    <w:name w:val="caption"/>
+    <w:basedOn w:val="Normal"/>
+    <w:qFormat/>
+    <w:pPr>
+      <w:suppressLineNumbers/>
+      <w:spacing w:before="120" w:after="120"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:cs="Lucida Sans"/>
+      <w:i/>
+      <w:iCs/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="Index">
+    <w:name w:val="Index"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:suppressLineNumbers/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:cs="Lucida Sans"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="Header">
+    <w:name w:val="header"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:tabs>
+        <w:tab w:val="center" w:pos="4320"/>
+        <w:tab w:val="right" w:pos="8640"/>
+      </w:tabs>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro Bold" w:hAnsi="Bliss Pro Bold" w:cs="Bliss Pro Bold"/>
+      <w:b/>
+      <w:sz w:val="20"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="Footer">
+    <w:name w:val="footer"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:tabs>
+        <w:tab w:val="center" w:pos="4320"/>
+        <w:tab w:val="right" w:pos="8640"/>
+      </w:tabs>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="COVERFrom">
+    <w:name w:val="COVER From"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:spacing w:before="900" w:after="65"/>
+      <w:ind w:left="-29"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro Light" w:eastAsia="Times New Roman" w:hAnsi="Bliss Pro Light" w:cs="Bliss Pro Light"/>
+      <w:bCs/>
+      <w:caps/>
+      <w:color w:val="0090C6"/>
+      <w:sz w:val="16"/>
+      <w:szCs w:val="20"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="PageHeader">
+    <w:name w:val="Page Header"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:spacing w:line="228" w:lineRule="auto"/>
+      <w:jc w:val="right"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro Bold" w:eastAsia="Times New Roman" w:hAnsi="Bliss Pro Bold" w:cs="Bliss Pro Bold"/>
+      <w:caps/>
+      <w:color w:val="0090C6"/>
+      <w:spacing w:val="12"/>
+      <w:sz w:val="16"/>
+      <w:szCs w:val="16"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="Framecontents">
+    <w:name w:val="Frame contents"/>
+    <w:basedOn w:val="BodyText"/>
+    <w:pPr>
+      <w:spacing w:line="288" w:lineRule="exact"/>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="FooterPageDate">
+    <w:name w:val="Footer Page Date"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:widowControl/>
+      <w:suppressAutoHyphens w:val="0"/>
+      <w:spacing w:line="228" w:lineRule="auto"/>
+      <w:jc w:val="both"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro Regular" w:eastAsia="Times New Roman" w:hAnsi="Bliss Pro Regular" w:cs="Times New Roman"/>
+      <w:caps/>
+      <w:color w:val="808080"/>
+      <w:sz w:val="13"/>
+      <w:szCs w:val="13"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="FooterReportName">
+    <w:name w:val="Footer Report Name"/>
+    <w:basedOn w:val="FooterPageDate"/>
+    <w:pPr>
+      <w:jc w:val="right"/>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="BODYBullet">
+    <w:name w:val="BODY Bullet"/>
+    <w:basedOn w:val="BodyText"/>
+    <w:pPr>
+      <w:widowControl/>
+      <w:numPr>
+        <w:numId w:val="2"/>
+      </w:numPr>
+      <w:suppressAutoHyphens w:val="0"/>
+      <w:spacing w:after="130" w:line="228" w:lineRule="auto"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:eastAsia="Times New Roman" w:hAnsi="Bliss Pro ExtraLight" w:cs="Times New Roman"/>
+      <w:sz w:val="20"/>
+      <w:szCs w:val="22"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="TableContents">
+    <w:name w:val="Table Contents"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:suppressLineNumbers/>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="TableHeading">
+    <w:name w:val="Table Heading"/>
+    <w:basedOn w:val="TableContents"/>
+    <w:pPr>
+      <w:jc w:val="center"/>
+    </w:pPr>
+    <w:rPr>
+      <w:b/>
+      <w:bCs/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="BalloonText">
+    <w:name w:val="Balloon Text"/>
+    <w:basedOn w:val="Normal"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Lucida Grande" w:hAnsi="Lucida Grande" w:cs="Lucida Grande"/>
+      <w:sz w:val="18"/>
+      <w:szCs w:val="18"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="ReportEndTableSubhead">
+    <w:name w:val="Report End Table Subhead"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:widowControl/>
+      <w:pBdr>
+        <w:top w:val="single" w:sz="4" w:space="3" w:color="808080"/>
+      </w:pBdr>
+      <w:suppressAutoHyphens w:val="0"/>
+      <w:spacing w:before="40"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro Medium" w:eastAsia="Times New Roman" w:hAnsi="Bliss Pro Medium" w:cs="Times New Roman"/>
+      <w:sz w:val="16"/>
+      <w:szCs w:val="16"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="ContactEditorTableBody">
+    <w:name w:val="Contact Editor Table Body"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:widowControl/>
+      <w:tabs>
+        <w:tab w:val="right" w:pos="3780"/>
+        <w:tab w:val="right" w:pos="7920"/>
+      </w:tabs>
+      <w:suppressAutoHyphens w:val="0"/>
+      <w:spacing w:after="120"/>
+      <w:jc w:val="both"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro Light" w:eastAsia="Times New Roman" w:hAnsi="Bliss Pro Light" w:cs="Times New Roman"/>
+      <w:sz w:val="16"/>
+      <w:szCs w:val="16"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="BODYCopyright">
+    <w:name w:val="BODY Copyright"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:widowControl/>
+      <w:suppressAutoHyphens w:val="0"/>
+      <w:spacing w:before="160" w:after="80" w:line="228" w:lineRule="auto"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro Light" w:eastAsia="Times New Roman" w:hAnsi="Bliss Pro Light" w:cs="Times New Roman"/>
+      <w:sz w:val="14"/>
+      <w:szCs w:val="14"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="TableFootnote">
+    <w:name w:val="Table Footnote"/>
+    <w:basedOn w:val="Normal"/>
+    <w:next w:val="Normal"/>
+    <w:pPr>
+      <w:widowControl/>
+      <w:tabs>
+        <w:tab w:val="left" w:pos="173"/>
+      </w:tabs>
+      <w:suppressAutoHyphens w:val="0"/>
+      <w:spacing w:before="180" w:after="60" w:line="264" w:lineRule="auto"/>
+      <w:ind w:left="173" w:hanging="173"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro Light" w:eastAsia="Times New Roman" w:hAnsi="Bliss Pro Light" w:cs="Times New Roman"/>
+      <w:sz w:val="14"/>
+      <w:szCs w:val="16"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:customStyle="1" w:styleId="Text">
+    <w:name w:val="Text"/>
+    <w:basedOn w:val="Caption"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Bliss Pro ExtraLight" w:hAnsi="Bliss Pro ExtraLight" w:cs="Bliss Pro ExtraLight"/>
+      <w:i w:val="0"/>
+      <w:sz w:val="20"/>
+    </w:rPr>
+  </w:style>
+</w:styles>

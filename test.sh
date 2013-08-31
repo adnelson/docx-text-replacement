@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd experimenting/graytv
-rm -rf graytv.docx graytv
-../../docxreplace.py moodys_june.docx graytv.docx replace.json
-unzip graytv.docx -d graytv
+cd example
+rm -rf finished
+../docxreplace.py moodys_example.docx finished.docx replace.json
+unzip finished.docx -d finished
+open finished.docx
