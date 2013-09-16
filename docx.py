@@ -194,9 +194,12 @@ class DocX():
                     self.set_image_relation(rid, new_image)
                     return
 
-    def replace_images_from_dic(self, replacements):
-        if self.image_reps is not None:
-            replacements = self.image_reps
+    def replace_images(self, replacements = None):
+        if replacements is None:
+            if self.image_reps is not None:
+                replacements = self.image_reps
+            else:
+                raise Exception("No image replacements defined")
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "graphic":
                 picname = get_pic_name(elem)
@@ -208,12 +211,13 @@ class DocX():
                     else:
                         print "Relation id for image %s not present; can't replace" % picname
 
-    def fill_tables(self, table_replacements = None):
+    def replace_tables(self, table_replacements = None):
         if table_replacements is None:
             if self.table_reps is not None:
                 table_replacements = self.table_reps
             else:
                 raise Exception("no table replacements dict defined")
+
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "tbl":
                 try:
