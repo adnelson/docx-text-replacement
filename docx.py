@@ -322,8 +322,13 @@ class DocX():
     def is_key(self, string):
         return len(string) > 2 and string[0] == string[-1] == '@'
 
-    def make_replacements(self, replacements, specific_words = None):
+    def replace_text(self, replacements = None, specific_words = None):
         ''' Finds and makes all of the replacements. '''
+        if replacements is None:
+            if self.text_reps is not None:
+                replacements = self.text_reps
+            else:
+                raise Exception("No text replacements defined")
         document = self.get_document()
         count = 0
         for elem in document.iter():

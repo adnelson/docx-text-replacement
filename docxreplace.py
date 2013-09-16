@@ -58,7 +58,7 @@ def process_file(input_filename,
     dx = DocX(input_filename)
     dx.load_replacements(json_file = json_filename)
     print "replacing text..."
-    dx.make_replacements(dx.text_reps)
+    dx.replace_text()
     print "finished replacing text, next replacing tables"
     dx.replace_tables()
     print "finished replacing tables, next images"
