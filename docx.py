@@ -23,6 +23,7 @@ from os.path import join
 import subprocess
 import random
 import json
+import sys
 
 log = logging.getLogger(__name__)
 
@@ -79,6 +80,9 @@ class DocX():
         self.text_reps = None
         self.table_reps = None
         self.image_reps = None
+        self.log_when_verbose_only = False
+        self.verbose = False
+        self.log_file = sys.stderr
 
         self.relationships = relationshiplist()
         self.trees = {}
@@ -91,14 +95,14 @@ class DocX():
                 doc = zipfile.ZipFile(self.filename) 
                 for name in doc.namelist():
                     if name.endswith("xml") or name.endswith("rels"):
-                        print "\tAdding xml file", name, " to DocX object"
+                        self.log("\tAdding xml file %s to DocX object" % name)
                         self.trees[name] = etree.fromstring(doc.read(name))
                     elif name.endswith("jpeg") or name.endswith("png") or name.endswith("jpg"):
                         # open the image and read its contents into memory
-                        print "\tAdding image: %s" % (name)
+                        self.log("\tAdding image: %s" % (name))
                         self.images[name] = doc.read(name)
                     else:
-                        print "\tFound a file %s that we're not doing anything with" % name
+                        self.log("\tFound a file %s that we're not doing anything with" % name)
                         self.other[name] = doc.read(name)
             except Exception as e:
                 print e
@@ -140,16 +144,16 @@ class DocX():
         try:
             img = open(image_path).read()
         except Exception as e:
-            print "Error opening image %s: %s" % (image_path, e)
+            self.log("Error opening image %s: %s" % (image_path, e))
             return
         # fix the image path (e.g. "foo/bar/baz.jpg" -> "media/baz.jpg")
         image_path = "media/" + image_path.split('/')[-1]
         self.images["word/" + image_path] = img
         for rel in rels:
             if 'Id' in rel.attrib and rel.attrib['Id'] == rel_id:
-                print "%s was pointed at %s" % (rel_id, rel.attrib['Target'])
+                self.log("%s was pointed at %s" % (rel_id, rel.attrib['Target']))
                 rel.attrib['Target'] = image_path
-                print 'Now %s is pointing at %s' % (rel_id, image_path)
+                self.log('Now %s is pointing at %s' % (rel_id, image_path))
                 return
         raise Exception('Relationship ID %s was not found!' % rel_id)
 
@@ -172,18 +176,28 @@ class DocX():
         for filename in self.trees:
             log.info('Saving XML file: %s' % filename)
             treestring = version_tag + etree.tostring(self.trees[filename], pretty_print = True)
-            print 'Saving %s' % (filename)
+            self.log('Saving %s' % (filename))
             docxfile.writestr(filename, treestring)
         for filename in self.images:
-            print "Saving image: %s" % filename
+            self.log("Saving image: %s" % filename)
             docxfile.writestr(filename, self.images[filename])
         for filename in self.other:
-            print "Saving other file: %s" % filename
+            self.log("Saving other file: %s" % filename)
             docxfile.writestr(filename, self.other[filename])
-        print "finished adding files. Archive now contains:"
-        docxfile.printdir()
-        print 'Saved to: %r' % output
+        if self.verbose:
+            self.log("finished adding files. Archive now contains:")
+        if self.verbose:
+            docxfile.printdir()
+        self.log('Saved to: %r' % output)
         docxfile.close()
+
+    def set_log_file(f):
+        self.log_file = f
+
+    def log(self, msg):
+        if self.log_when_verbose_only and not self.verbose:
+            return
+        self.log_file.write(msg + "\n")
 
     def replace_image(self, imagename, new_image):
         for elem in self.get_document().iter():
@@ -206,10 +220,11 @@ class DocX():
                 if picname and picname in replacements:
                     rid = get_id(elem)
                     if rid is not None:
-                        print "Replacing %s with %s" % (picname, replacements[picname])
+                        self.log("Replacing %s with %s" % (picname, replacements[picname]))
                         self.set_image_relation(rid, replacements[picname])
                     else:
-                        print "Relation id for image %s not present; can't replace" % picname
+                        if self.verbose:
+                            print "Relation id for image %s not present; can't replace" % picname
 
     def replace_tables(self, table_replacements = None):
         if table_replacements is None:
@@ -237,7 +252,7 @@ class DocX():
                                 # print "No @@ tag found to describe source in row %d" % i
                                 continue
                             source = tags[0]
-                            print "Found table tag %s, querying dictionary" % source
+                            self.log("Found table tag %s, querying dictionary" % source)
                             if source not in table_replacements:
                                 raise Exception("Error: couldn't find %s in replacements dict" % source)
                             settings = table_replacements[source][0]
@@ -269,11 +284,10 @@ class DocX():
                                                               font_size=font_size.__str__(),
                                                               borders = borders))
                                 j += 1
-                            print "Inserted %d rows into table %s" % (j, source)
+                            self.log("Inserted %d rows into table %s" % (j, source))
                             break # only do it once for each table
                 except Exception as e:
-                    print e
-                    print "Error reading or constructing table element, no rows added"
+                    self.log(e + "\n" + "Error reading or constructing table element, no rows added")
                     return
 
     def load_replacements(self, json_file = None, jsonstr = None, dic = None):
@@ -307,13 +321,13 @@ class DocX():
                     continue
                 try:
                     key = sub[1:-1]
-                    # if VERBOSE: 
-                    print "replacing '%s' with '%s'" % (key, replacements[key])
+                    self.log("replacing '%s' with '%s'" % (key, replacements[key]))
                     res += replacements[key].__str__()
                     count += 1
                 except KeyError:
                     #if it's not in our lookup table, append as-is
-                    print "Key '%s' not found in replacements!" % sub
+                    if self.verbose:
+                        print "Key '%s' not found in replacements!" % sub
                     res += sub
             else:
                 res += sub
@@ -335,7 +349,7 @@ class DocX():
             if elem.text:
                 elem.text, c = self.replace_tags(elem.text, replacements, specific_words)
                 count += c
-        print "Made %d replacements" % count
+        self.log("Made %d replacements" % count)
 
     #####################                    
     # end of class DocX #
