@@ -60,7 +60,7 @@ def process_file(input_filename,
     print "replacing text..."
     dx.make_replacements(dx.text_reps)
     print "finished replacing text, next replacing tables"
-    dx.fill_tables(dx.table_reps)
+    dx.fill_tables()
     print "finished replacing tables, next images"
     dx.replace_images_from_dic(dx.image_reps)
     print "done, saving..."

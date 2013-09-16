@@ -208,9 +208,12 @@ class DocX():
                     else:
                         print "Relation id for image %s not present; can't replace" % picname
 
-    def fill_tables(self, table_replacements):
-        if self.table_reps is not None:
-            replacements = self.table_reps
+    def fill_tables(self, table_replacements = None):
+        if table_replacements is None:
+            if self.table_reps is not None:
+                table_replacements = self.table_reps
+            else:
+                raise Exception("no table replacements dict defined")
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "tbl":
                 try:
