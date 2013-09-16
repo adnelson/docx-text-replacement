@@ -22,6 +22,7 @@ import os
 from os.path import join
 import subprocess
 import random
+import json
 
 log = logging.getLogger(__name__)
 
@@ -75,6 +76,10 @@ def make_dummy_table(nrows, ncols, multiplier = 1):
 
 class DocX():
     def __init__(self, filename = None):
+        self.text_reps = None
+        self.table_reps = None
+        self.image_reps = None
+
         self.relationships = relationshiplist()
         self.trees = {}
         self.images = {}
@@ -190,6 +195,8 @@ class DocX():
                     return
 
     def replace_images_from_dic(self, replacements):
+        if self.image_reps is not None:
+            replacements = self.image_reps
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "graphic":
                 picname = get_pic_name(elem)
@@ -200,7 +207,10 @@ class DocX():
                         self.set_image_relation(rid, replacements[picname])
                     else:
                         print "Relation id for image %s not present; can't replace" % picname
+
     def fill_tables(self, table_replacements):
+        if self.table_reps is not None:
+            replacements = self.table_reps
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "tbl":
                 try:
@@ -258,6 +268,62 @@ class DocX():
                     print e
                     print "Error reading or constructing table element, no rows added"
                     return
+
+    def load_replacements(self, json_file = None, jsonstr = None, dic = None):
+        ''' Loads a file or string containing JSON into a python dictionary,
+            or can be supplied a dictionary directly
+        '''
+        if json_file is not None:
+            f = open(json_file)
+            self.replacements = json.loads(f.read())
+            f.close()
+        elif jsonstr is not None:
+            self.replacements = json.loads(jsonstr)
+        elif dic is not None:
+            self.replacements = dic
+        else:
+            raise Exception("No data supplied to load_replacements")
+
+        self.text_reps = self.replacements.get("text", {})
+        self.table_reps = self.replacements.get("tables", {})
+        self.image_reps = self.replacements.get("images", {})
+
+    def replace_tags(self, line, replacements, specific_words = None):
+        subs = re.split(r'(@[^@]*@)', line)
+        res = ""
+        count = 0
+        for sub in subs:
+            if self.is_key(sub):
+                # if we've given a specific word list, and this isn't in it:
+                if specific_words and sub[1:-1] not in specific_words:
+                    res += sub # just append as-is and continue
+                    continue
+                try:
+                    key = sub[1:-1]
+                    # if VERBOSE: 
+                    print "replacing '%s' with '%s'" % (key, replacements[key])
+                    res += replacements[key].__str__()
+                    count += 1
+                except KeyError:
+                    #if it's not in our lookup table, append as-is
+                    print "Key '%s' not found in replacements!" % sub
+                    res += sub
+            else:
+                res += sub
+        return res, count
+
+    def is_key(self, string):
+        return len(string) > 2 and string[0] == string[-1] == '@'
+
+    def make_replacements(self, replacements, specific_words = None):
+        ''' Finds and makes all of the replacements. '''
+        document = self.get_document()
+        count = 0
+        for elem in document.iter():
+            if elem.text:
+                elem.text, c = self.replace_tags(elem.text, replacements, specific_words)
+                count += c
+        print "Made %d replacements" % count
 
     #####################                    
     # end of class DocX #

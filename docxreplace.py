@@ -51,29 +51,28 @@ def get_replacements(filename):
     return json.loads(f.read())
     return text, tables, images
 
-def process_file(filename, replacements = None, output = None, save = True):
+def process_file(input_filename, 
+                 json_filename,
+                 output_filename):
     ''' Given a .docx filename, makes replacements and saves the document '''
-    dx = DocX(filename)
-    text = replacements.get("text", {})
-    tables = replacements.get("tables", {})
-    images = replacements.get("images", {})
+    dx = DocX(input_filename)
+    dx.load_replacements(json_file = json_filename)
     print "replacing text..."
-    make_replacements(dx, text)
+    dx.make_replacements(dx.text_reps)
     print "finished replacing text, next replacing tables"
-    dx.fill_tables(tables)
+    dx.fill_tables(dx.table_reps)
     print "finished replacing tables, next images"
-    dx.replace_images_from_dic(images)
+    dx.replace_images_from_dic(dx.image_reps)
     print "done, saving..."
-    if save: dx.save(output)
+    dx.save(output_filename)
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
         input_docx = sys.argv[1]
         output_docx = sys.argv[2]
-        json_data = sys.argv[3]
-        print "Input file: %s\nOutput file: %s\n JSON file: %s" % (input_docx, output_docx, json_data)
-        process_file(input_docx,
-                     replacements = get_replacements(json_data),
-                     output = output_docx)
+        json_filename = sys.argv[3]
+        print "Input file: %s\nOutput file: %s\n JSON file: %s" %\
+                 (input_docx, output_docx, json_filename)
+        process_file(input_docx, json_filename, output_docx)
     else:
         print "Error, not enough arguments. Should be: <input docx> <output docx> <json file>"
