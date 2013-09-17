@@ -75,7 +75,7 @@ def make_dummy_table(nrows, ncols, multiplier = 1):
             dummy_table[-1].append(x)
     return dummy_table
 
-class DocX():
+class DocX(object):
     def __init__(self, filename = None):
         self.text_reps = None
         self.table_reps = None
@@ -289,25 +289,6 @@ class DocX():
                 except Exception as e:
                     self.log(e + "\n" + "Error reading or constructing table element, no rows added")
                     return
-
-    def load_replacements(self, json_file = None, jsonstr = None, dic = None):
-        ''' Loads a file or string containing JSON into a python dictionary,
-            or can be supplied a dictionary directly
-        '''
-        if json_file is not None:
-            f = open(json_file)
-            self.replacements = json.loads(f.read())
-            f.close()
-        elif jsonstr is not None:
-            self.replacements = json.loads(jsonstr)
-        elif dic is not None:
-            self.replacements = dic
-        else:
-            raise Exception("No data supplied to load_replacements")
-
-        self.text_reps = self.replacements.get("text", {})
-        self.table_reps = self.replacements.get("tables", {})
-        self.image_reps = self.replacements.get("images", {})
 
     def replace_tags(self, line, replacements, specific_words = None):
         subs = re.split(r'(@[^@]*@)', line)
