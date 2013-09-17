@@ -77,11 +77,7 @@ def make_dummy_table(nrows, ncols, multiplier = 1):
 
 class DocX(object):
     def __init__(self, filename = None):
-        self.text_reps = None
-        self.table_reps = None
-        self.image_reps = None
-        self.log_when_verbose_only = False
-        self.verbose = False
+        self.verbose = True
         self.log_file = sys.stderr
 
         self.relationships = relationshiplist()
@@ -195,9 +191,8 @@ class DocX(object):
         self.log_file = f
 
     def log(self, msg):
-        if self.log_when_verbose_only and not self.verbose:
-            return
-        self.log_file.write(msg + "\n")
+        if self.verbose:
+            self.log_file.write(msg + "\n")
 
     def find_subelem(self, elem, name):
         ''' Given an etree graphic element, finds first subelement with given name '''

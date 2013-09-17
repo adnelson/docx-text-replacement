@@ -161,20 +161,23 @@ class DocXReplace(DocX):
                     self.log(e + "\n" + "Error reading or constructing table element, no rows added")
                     return
 
+    def replace_all(self, text_reps = None, table_reps = None, image_reps = None):
+        self.log("replacing text...")
+        self.replace_text(text_reps)
+        self.log("replacing tables...")
+        self.replace_tables(table_reps)
+        self.log("replacing images...")
+        self.replace_images(image_reps)
+        self.log("done")
+
+
 
 def process_file(input_filename, 
                  json_filename,
                  output_filename):
     ''' Given a .docx filename, makes replacements and saves the document '''
     dx = DocXReplace(input_filename, json_file = json_filename)
-    dx.verbose_only = True
-    print "replacing text..."
-    dx.replace_text()
-    print "finished replacing text, next replacing tables"
-    dx.replace_tables()
-    print "finished replacing tables, next images"
-    dx.replace_images()
-    print "done, saving..."
+    dx.replace_all()
     dx.save(output_filename)
 
 if __name__ == '__main__':
