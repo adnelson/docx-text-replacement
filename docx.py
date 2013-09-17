@@ -243,7 +243,7 @@ class DocX(object):
             return None
 
     def get_pic_name(self, graphicselem):
-        e = find_subelem_list(graphicselem, path_to_picname)
+        e = self.find_subelem_list(graphicselem, path_to_picname)
         if e is not None:
             try:
                 return e.attrib['name']
@@ -266,34 +266,10 @@ class DocX(object):
             if subelem.tag.split("}")[-1] == "tr":
                 count += 1
         return count
-    
+
     #####################                    
     # end of class DocX #
     #####################
-
-# def find_subelem(elem, name):
-#     ''' Given an etree graphic element, finds first subelement with given name '''
-#     for subelem in elem:
-#         if subelem.tag.split("}")[-1] == name:
-#             return subelem
-#     return None
-
-# def find_subelem_index(elem, name):
-#     ''' Given an etree graphic element, finds index of first subelement with given name '''
-#     i = 0
-#     for subelem in elem:
-#         if subelem.tag.split("}")[-1] == name:
-#             return i
-#         i += 1
-#     return None
-
-# def find_subelem_list(elem, namelist):
-#     for name in namelist:
-#         elem = find_subelem(elem, name)
-#         if elem is None:
-#             # print "find_subelem_list failed at element %s" % name
-#             return None
-#     return elem
 
 path_to_description = ["graphicData", "wsp", "txbx", "txbxContent", "p", "r", "t"]
 path_to_id = ["graphicData", "pic", "blipFill", "blip"]
