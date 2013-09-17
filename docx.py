@@ -202,8 +202,8 @@ class DocX(object):
     def replace_image(self, imagename, new_image):
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "graphic":
-                rid = get_id(elem)
-                picname = get_pic_name(elem)
+                rid = self.get_id(elem)
+                picname = self.get_pic_name(elem)
                 if picname == imagename and rid is not None:
                     self.set_image_relation(rid, new_image)
                     return
@@ -216,9 +216,9 @@ class DocX(object):
                 raise Exception("No image replacements defined")
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "graphic":
-                picname = get_pic_name(elem)
+                picname = self.get_pic_name(elem)
                 if picname and picname in replacements:
-                    rid = get_id(elem)
+                    rid = self.get_id(elem)
                     if rid is not None:
                         self.log("Replacing %s with %s" % (picname, replacements[picname]))
                         self.set_image_relation(rid, replacements[picname])
@@ -236,12 +236,12 @@ class DocX(object):
         for elem in self.get_document().iter():
             if elem.tag.split("}")[-1] == "tbl":
                 try:
-                    nrows = get_num_rows(elem)
-                    ncols = get_num_columns(elem)
+                    nrows = self.get_num_rows(elem)
+                    ncols = self.get_num_columns(elem)
                     for i in range(len(elem)):
                         if elem[i].tag.split("}")[-1] == "tr":
                             rowelem = elem[i]
-                            col = find_subelem_list(rowelem, ["tc", "p", "r", "t"])
+                            col = self.find_subelem_list(rowelem, ["tc", "p", "r", "t"])
 
                             if col is None:
                                 raise Exception("Could not find column")
@@ -290,47 +290,73 @@ class DocX(object):
                     self.log(e + "\n" + "Error reading or constructing table element, no rows added")
                     return
 
-    def replace_tags(self, line, replacements, specific_words = None):
-        subs = re.split(r'(@[^@]*@)', line)
-        res = ""
-        count = 0
-        for sub in subs:
-            if self.is_key(sub):
-                # if we've given a specific word list, and this isn't in it:
-                if specific_words and sub[1:-1] not in specific_words:
-                    res += sub # just append as-is and continue
-                    continue
-                try:
-                    key = sub[1:-1]
-                    self.log("replacing '%s' with '%s'" % (key, replacements[key]))
-                    res += replacements[key].__str__()
-                    count += 1
-                except KeyError:
-                    #if it's not in our lookup table, append as-is
-                    if self.verbose:
-                        print "Key '%s' not found in replacements!" % sub
-                    res += sub
-            else:
-                res += sub
-        return res, count
+    def find_subelem(self, elem, name):
+        ''' Given an etree graphic element, finds first subelement with given name '''
+        for subelem in elem:
+            if subelem.tag.split("}")[-1] == name:
+                return subelem
+        return None
 
-    def is_key(self, string):
-        return len(string) > 2 and string[0] == string[-1] == '@'
+    def find_subelem_index(self, elem, name):
+        ''' Given an etree graphic element, finds index of first subelement with given name '''
+        i = 0
+        for subelem in elem:
+            if subelem.tag.split("}")[-1] == name:
+                return i
+            i += 1
+        return None
 
-    def replace_text(self, replacements = None, specific_words = None):
-        ''' Finds and makes all of the replacements. '''
-        if replacements is None:
-            if self.text_reps is not None:
-                replacements = self.text_reps
-            else:
-                raise Exception("No text replacements defined")
-        document = self.get_document()
+    def find_subelem_list(self, elem, namelist):
+        for name in namelist:
+            elem = self.find_subelem(elem, name)
+            if elem is None:
+                # print "find_subelem_list failed at element %s" % name
+                return None
+        return elem
+
+    def get_description(self, graphicselem):
+        e = self.find_subelem_list(graphicselem, path_to_description)
+        if e is not None:
+            return e.text
+        else:
+            return None
+
+    def get_id(self, graphicselem):
+        pref = '{http://schemas.openxmlformats.org/officeDocument/2006/relationships}embed'
+        elem = self.find_subelem_list(graphicselem, path_to_id)
+        if elem is not None:
+            try: 
+                return elem.attrib[pref]
+            except KeyError:
+                print "Id tag found but no embed attribute"
+                return None
+        else:
+            return None
+
+    def get_pic_name(self, graphicselem):
+        e = find_subelem_list(graphicselem, path_to_picname)
+        if e is not None:
+            try:
+                return e.attrib['name']
+            except KeyError:
+                print "Pic tag found but no name attribute"
+                return None
+        else:
+            return None
+
+    def get_num_columns(self, table_elem):
+        grid = self.find_subelem_list(table_elem, ["tblGrid"])
+        if grid is not None:
+            return len(grid)
+        else:
+            raise Exception("tblGrid element could not be found in table")
+
+    def get_num_rows(self, table_elem):
         count = 0
-        for elem in document.iter():
-            if elem.text:
-                elem.text, c = self.replace_tags(elem.text, replacements, specific_words)
-                count += c
-        self.log("Made %d replacements" % count)
+        for subelem in table_elem:
+            if subelem.tag.split("}")[-1] == "tr":
+                count += 1
+        return count
 
     #####################                    
     # end of class DocX #
@@ -363,49 +389,6 @@ def find_subelem_list(elem, namelist):
 path_to_description = ["graphicData", "wsp", "txbx", "txbxContent", "p", "r", "t"]
 path_to_id = ["graphicData", "pic", "blipFill", "blip"]
 path_to_picname = ["graphicData", "pic", "nvPicPr", "cNvPr"]
-
-def get_description(graphicselem):
-    e = find_subelem_list(graphicselem, path_to_description)
-    if e is not None:
-        return e.text
-    else:
-        return None
-
-def get_id(graphicselem):
-    elem = find_subelem_list(graphicselem, path_to_id)
-    if elem is not None:
-        try: 
-            return elem.attrib['{http://schemas.openxmlformats.org/officeDocument/2006/relationships}embed']
-        except KeyError:
-            print "Id tag found but no embed attribute"
-            return None
-    else:
-        return None
-
-def get_pic_name(graphicselem):
-    e = find_subelem_list(graphicselem, path_to_picname)
-    if e is not None:
-        try:
-            return e.attrib['name']
-        except KeyError:
-            print "Pic tag found but no name attribute"
-            return None
-    else:
-        return None
-
-def get_num_columns(table_elem):
-    grid = find_subelem_list(table_elem, ["tblGrid"])
-    if grid is not None:
-        return len(grid)
-    else:
-        raise Exception("tblGrid element could not be found in table")
-
-def get_num_rows(table_elem):
-    count = 0
-    for subelem in table_elem:
-        if subelem.tag.split("}")[-1] == "tr":
-            count += 1
-    return count
 
 def opendocx(file):
     '''Open a docx file, return a document XML tree'''
